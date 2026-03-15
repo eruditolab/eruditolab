@@ -1,0 +1,617 @@
+        :root {
+            --primary: #00bfff;
+            --bg-dark: #121212;
+            --card-bg: #1e1e2f;
+            --text: #e0e0e0;
+            --text-light: #aaaaaa;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: var(--card-bg);
+            padding-top: 20px;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .logo-sidebar {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo-sidebar img {
+            height: 70px;
+        }
+
+        .menu {
+            margin-top: 30px;
+        }
+
+        .menu-item {
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .menu-item:hover {
+            background-color: #2a2a3f;
+        }
+
+        .menu-item.active {
+            background-color: #2a2a3f;
+            border-left: 4px solid var(--primary);
+        }
+
+        .menu-item a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .submenu {
+            padding-left: 40px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .submenu.open {
+            max-height: 300px;
+        }
+
+        .submenu a {
+            padding: 10px 0;
+            display: block;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .submenu a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            width: calc(100% - 280px);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome {
+            font-size: 1.8rem;
+        }
+
+        .logout-btn {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff6666;
+        }
+
+        /* Contenido Dinámico */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Inicio */
+        .user-details {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .user-details h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .editable-field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .editable-field span {
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 8px;
+            min-width: 200px;
+        }
+
+        .scores-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .score-item {
+            background-color: #2a2a3f;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .score-item strong {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        /* Información Importante */
+        .accordion-item {
+            background-color: var(--card-bg);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            background-color: #2a2a3f;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            transition: transform 0.3s;
+        }
+
+        .accordion-header.open::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: var(--card-bg);
+        }
+
+        .accordion-content.open {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* Estadísticas Inicio */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* (Reutiliza los estilos de progress-circle y stat-card de la versión anterior) */
+        .stat-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        .progress-circle {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+        }
+/* Grid de opciones de curso */
+.course-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.course-option-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+.course-option-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,123,255,0.3);
+    border-color: var(--primary);
+}
+
+.course-option-card h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.course-option-card p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* Contenedor del iframe */
+.course-content-frame {
+    margin-top: 40px;
+    width: 100%;
+    height: calc(100vh - 200px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+#courseIframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+}
+
+
+
+/* Botón hamburguesa para móviles */
+.menu-toggle {
+    display: none; /* Oculto por defecto */
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 15px;
+}
+
+/* Overlay para fondo oscuro cuando sidebar está abierto */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    backdrop-filter: blur(3px);
+}
+
+/* Clase para cuando el sidebar está abierto en móviles */
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* Para el botón de cerrar dentro del sidebar (opcional) */
+.close-sidebar {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* ============ ESTILOS BOTONES EDITAR (DESKTOP) ============ */
+.edit-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    min-width: 100px;
+    text-align: center;
+}
+
+.edit-btn:hover {
+    background-color: #00a8cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3);
+}
+
+.edit-btn:active {
+    transform: translateY(0);
+}
+
+/* Asegurar que los campos editables mantengan su layout en desktop */
+.editable-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.editable-field span {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    min-width: 200px;
+    text-align: center;
+}
+
+#toggleCursos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+}
+
+#menuCursos {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    /* Mostrar botón hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Sidebar oculto por defecto en móviles */
+    .sidebar {
+        width: 280px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    
+    /* Mostrar botón de cerrar en sidebar móvil */
+    .close-sidebar {
+        display: block;
+    }
+    
+    /* Main content ocupa toda la pantalla */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+    
+    /* Ajustar header principal */
+    header {
+        flex-wrap: wrap;
+    }
+    
+    .welcome {
+        font-size: 1.4rem;
+        margin: 10px 0;
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .logout-btn {
+        order: 3;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Ajustar grid en móviles */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .course-options-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Ajustar tarjetas en móviles */
+    .stat-card, .course-option-card {
+        padding: 20px;
+    }
+}
+.progress-circle svg {
+    transform: rotate(-90deg);
+}
+
+.progress-circle .bg {
+    fill: none;
+    stroke: #2a2a3f;
+    stroke-width: 10;
+}
+
+.progress-circle .progress {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 10;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.progress-circle .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* ============ SECCIÓN PERFIL - MÓVILES ============ */
+@media (max-width: 768px) {
+    /* Contenedor principal de datos del usuario */
+    .user-details {
+        padding: 20px 15px;
+        margin-bottom: 25px;
+    }
+    
+    .user-details h2 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    /* Campos editables */
+    .editable-field {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        gap: 10px;
+    }
+    
+    .editable-field strong {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+    
+    .editable-field span {
+        width: 100%;
+        min-width: unset;
+        padding: 12px;
+        font-size: 1.1rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        margin: 8px 0;
+    }
+    
+    .edit-btn {
+        align-self: flex-end;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    
+    .edit-btn:hover {
+        background-color: #00a8cc;
+    }
+    
+    /* Lista de puntajes PAES */
+    .scores-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .score-item {
+        padding: 20px 15px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .score-item span {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        text-align: center;
+        line-height: 1.4;
+    }
+    
+    .score-item strong {
+        font-size: 1.5rem;
+        order: -1; /* Poner el puntaje arriba */
+        margin-bottom: 10px;
+    }
+    
+    /* Título de la sección de puntajes */
+    #perfil h2:nth-of-type(2) {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        color: var(--primary);
+    }
+}
+
+/* ============ MÓVILES MUY PEQUEÑOS ============ */
+@media (max-width: 480px) {
+    .user-details {
+        padding: 15px 12px;
+    }
+    
+    .user-details h2 {
+        font-size: 1.3rem;
+    }
+    
+    .editable-field {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .editable-field span {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    
+    .score-item {
+        padding: 15px 12px;
+    }
+    
+    .score-item strong {
+        font-size: 1.3rem;
+    }
+    
+    .edit-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-top: 10px;
+    }
+}

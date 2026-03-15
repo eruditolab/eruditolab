@@ -1,0 +1,10 @@
+# Bloquear acceso directo a todo en esta carpeta
+RewriteEngine On
+RewriteBase /eruditolab/content/
+
+# Redirigir todo al verificador PHP
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /eruditolab/api/content/verificar.php?ruta=$1 [QSA,L]
+
+# Bloquear acceso directo a archivos HTML
+RewriteRule \.html$ /eruditolab/api/content/verificar.php [F,L]

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material - Competencia Lectora | Erudito Lab</title>
+    <link rel="stylesheet" href="/eruditolab/api/content/verificar.php?ruta=css/style-index.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://i.postimg.cc/sfPSz5rX/Logo-300-x-300-sin-fondo-1.png" alt="Erudito Lab">
+        </div>
+
+        <div class="header-buttons">
+            <a href="/eruditolab/public/dashboard.html" class="btn btn-back">← Volver al Dashboard</a>
+            <button class="btn btn-logout" id="logoutBtn">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h1>Competencia Lectora - Material del Curso</h1>
+
+        <div class="classes-grid" id="classesGrid">
+            <!-- Las clases se generan con JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const clases = [
+            "Introducción PAES Competencia Lectora",
+            "Lectura Estratégica",
+            "Modelos de Comunicación Humana",
+            "Modalidades del discurso",
+            "Lexicología",
+            "Semántica",
+            "Gramática Funcional I",
+            "Gramática Funcional II",
+            "Coherencia y Cohesión",
+            "Conectores",
+            "Procedimientos Textuales I",
+            "Procedimientos Textuales II",
+            "Texto Expositivo",
+            "Texto Instructivo",
+            "Texto Argumentativo I",
+            "Texto Argumentativo II",
+            "Texto Narrativo I",
+            "Texto Narrativo II",
+            "Estrategias de Resolución",
+            "Textos multimodales",
+        ];
+    </script>
+    <script src="/eruditolab/api/content/verificar.php?ruta=js/api-content.js"></script>
+    <script src="/eruditolab/api/content/verificar.php?ruta=js/index-material.js"></script>
+</body>
+</html>

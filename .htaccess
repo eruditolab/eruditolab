@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /eruditolab/
+
+# Proteger carpeta content — redirigir al verificador
+RewriteRule ^content/(.+\.html)$ api/content/verificar.php?ruta=$1 [QSA,L]
+
+# Redirigir SOLO rutas api/ que NO sean archivos reales
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/(.*)$ api/Router.php [QSA,L]

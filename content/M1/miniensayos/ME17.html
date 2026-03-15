@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miniensayo de Matemáticas M1 17</title>
+    
+    <link rel="stylesheet" href="/eruditolab/api/content/verificar.php?ruta=css/style-miniensayo.css">
+    
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <div id="timer" class="timer">00:00</div>
+    <div class="quiz-container">
+        <h2>Miniensayo de Matemáticas M1 17</h2>
+        <div class="progress-bar">
+            <div class="progress" id="progressBar"></div>
+        </div>
+        <div id="quizContent"></div>
+        <div class="navigation">
+            <button onclick="previousQuestion()" id="prevBtn" style="display: none;">Anterior</button>
+            <button onclick="nextQuestion()" id="nextBtn">Siguiente</button>
+        </div>
+        <div id="results"></div>
+    </div>
+    <script src="/eruditolab/api/content/verificar.php?ruta=M1/miniensayos/quiz-engine.js"></script>
+    <script src="/eruditolab/api/content/verificar.php?ruta=M1/miniensayos/script17.js"></script>
+</body>
+</html>

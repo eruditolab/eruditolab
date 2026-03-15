@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Erudito Lab</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+            <button class="close-sidebar" id="closeSidebar">✕</button>
+        <div class="logo-sidebar">
+            <img src="https://i.postimg.cc/sfPSz5rX/Logo-300-x-300-sin-fondo-1.png" alt="Erudito Lab">
+        </div>
+
+        <nav class="menu">
+            <div class="menu-item active" data-section="inicio">
+                <a>Inicio</a>
+            </div>
+
+            <div class="menu-item" data-section="perfil">
+                <a>Mi Perfil</a>
+            </div>
+
+            <div class="menu-item" data-section="info">
+                <a>Información Importante</a>
+            </div>
+
+            <div class="menu-item" id="menuCursos">
+                <a id="toggleCursos">Cursos ▼</a>
+                <div class="submenu" id="submenuCursos">
+                    <a data-curso="lectora">Competencia Lectora</a>
+                    <a data-curso="m1">Matemáticas M1</a>
+                    <a data-curso="historia">Historia y Ciencias Sociales</a>
+                    <a data-curso="ciencias">Ciencias</a>
+                    <a data-curso="m2">Matemáticas M2</a>
+                </div>
+            </div>
+        </nav>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <header>
+            <button class="menu-toggle" id="menuToggle">
+                <span class="hamburger">☰</span>
+            </button>
+            <h1 class="welcome">Bienvenido, <span id="nombreUsuario">Cargando...</span></h1>
+            <button class="logout-btn" id="logoutBtn">Cerrar sesión</button>
+        </header>
+<!-- Sección inicio -->
+<section id="inicio" class="content-section active">
+    <h2 style="margin-top: 60px;">Progreso en Cursos</h2>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h2 class="stat-title">Competencia Lectora</h2>
+            <div class="progress-circle" data-progress="0" data-curso="CL">
+                <svg width="150" height="150">
+                    <circle class="bg" cx="75" cy="75" r="70"></circle>
+                    <circle class="progress" cx="75" cy="75" r="70"></circle>
+                </svg>
+                <div class="progress-text">0%</div>
+            </div>
+            <p>Avance general del módulo</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 class="stat-title">Matemática M1</h2>
+            <div class="progress-circle" data-progress="0" data-curso="M1">
+                <svg width="150" height="150">
+                    <circle class="bg" cx="75" cy="75" r="70"></circle>
+                    <circle class="progress" cx="75" cy="75" r="70"></circle>
+                </svg>
+                <div class="progress-text">0%</div>
+            </div>
+            <p>Avance general del módulo</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 class="stat-title">Matemática M2</h2>
+            <div class="progress-circle" data-progress="0" data-curso="M2">
+                <svg width="150" height="150">
+                    <circle class="bg" cx="75" cy="75" r="70"></circle>
+                    <circle class="progress" cx="75" cy="75" r="70"></circle>
+                </svg>
+                <div class="progress-text">0%</div>
+            </div>
+            <p>Avance general del módulo</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 class="stat-title">Historia y Cs. Sociales</h2>
+            <div class="progress-circle" data-progress="0" data-curso="HCS">
+                <svg width="150" height="150">
+                    <circle class="bg" cx="75" cy="75" r="70"></circle>
+                    <circle class="progress" cx="75" cy="75" r="70"></circle>
+                </svg>
+                <div class="progress-text">0%</div>
+            </div>
+            <p>Avance general del módulo</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 class="stat-title">Ciencias</h2>
+            <div class="progress-circle" data-progress="0" data-curso="CN">
+                <svg width="150" height="150">
+                    <circle class="bg" cx="75" cy="75" r="70"></circle>
+                    <circle class="progress" cx="75" cy="75" r="70"></circle>
+                </svg>
+                <div class="progress-text">0%</div>
+            </div>
+            <p>Avance general del módulo</p>
+        </div>
+
+    </div>
+</section>
+        <!-- Sección perfil -->
+        <section id="perfil" class="content-section">
+            <div class="user-details">
+                <h2>Mis Datos</h2>
+                <p><strong>Correo:</strong> <span id="emailUsuario">cargando@ejemplo.com</span></p>
+
+                <div class="editable-field">
+                    <strong>NEM:</strong> <span id="nemValue">---</span>
+                    <button class="edit-btn" data-field="nem">Editar</button>
+                </div>
+
+                <div class="editable-field">
+                    <strong>Ranking:</strong> <span id="rankingValue">---</span>
+                    <button class="edit-btn" data-field="ranking">Editar</button>
+                </div>
+            </div>
+
+            <h2>Mis Puntajes PAES</h2>
+            <div class="scores-list">
+                <div class="score-item">
+                    <span>Competencia Lectora</span>
+                    <strong id="puntajeLectora">---</strong>
+                </div>
+                <div class="score-item">
+                    <span>Matemáticas M1</span>
+                    <strong id="puntajeM1">---</strong>
+                </div>
+                <div class="score-item">
+                    <span>Historia y Ciencias Sociales</span>
+                    <strong id="puntajeHistoria">---</strong>
+                </div>
+                <div class="score-item">
+                    <span>Ciencias</span>
+                    <strong id="puntajeCiencias">---</strong>
+                </div>
+                <div class="score-item">
+                    <span>Matemáticas M2</span>
+                    <strong id="puntajeM2">---</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Información Importante -->
+        <section id="info" class="content-section">
+            <h2>Calendario y Guías PAES 2026</h2>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Fecha Inscripción PAES Invierno</div>
+                <div class="accordion-content">
+                    <p>Del 5 de marzo al 18 de marzo de 2025 (o hasta completar 50.000 cupos).</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Fecha Rendición PAES Invierno</div>
+                <div class="accordion-content">
+                    <p>16, 17 y 18 de junio de 2025.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Fecha Resultados PAES Invierno</div>
+                <div class="accordion-content">
+                    <p>18 de julio de 2025, desde las 09:00 hrs.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Fecha Inscripción PAES Regular</div>
+                <div class="accordion-content">
+                    <p>Del 2 de junio al 23 de julio de 2025.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Fecha Rendición PAES Regular</div>
+                <div class="accordion-content">
+                    <p>1, 2 y 3 de diciembre de 2025.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Fecha Resultados PAES Regular</div>
+                <div class="accordion-content">
+                    <p>5 de enero de 2026, desde las 08:00 hrs.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">¿Qué es el FUAS?</div>
+                <div class="accordion-content">
+                    <p>El Formulario Único de Acreditación Socioeconómica (FUAS) es el trámite obligatorio para postular a gratuidad, becas y créditos del Estado para educación superior.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">Fecha para completar FUAS</div>
+                <div class="accordion-content">
+                    <p>Primer período: octubre-noviembre 2025.<br>Segundo período: 12 de febrero al 12 de marzo de 2026.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">¿Cómo se debe completar el FUAS?</div>
+                <div class="accordion-content">
+                    <p>Ingresa a fuas.cl, completa datos personales, académicos y socioeconómicos del grupo familiar. Declara ingresos brutos y verifica todo antes de enviar.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">¿Cómo se calcula el puntaje de postulación?</div>
+                <div class="accordion-content">
+                    <p>Es un promedio ponderado de: Notas Enseñanza Media (NEM), Ranking, Puntaje PAES (obligatorias y electivas según carrera) y, en algunos casos, otros factores. Cada carrera define sus ponderaciones.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">¿Qué es el puntaje de corte?</div>
+                <div class="accordion-content">
+                    <p>Es el puntaje del último seleccionado en la carrera el año anterior. Sirve como referencia, pero varía cada año según postulantes y vacantes.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header">¿Cómo se debe postular?</div>
+                <div class="accordion-content">
+                    <p>Del 5 al 8 de enero de 2026 en acceso.mineduc.cl. Ordena hasta 10 preferencias. El sistema asigna el mejor posible según puntaje.</p>
+                </div>
+            </div>
+        </section>
+
+<!-- Sección Cursos -->
+<section id="curso" class="content-section">
+    <div id="cursoOpciones">
+        <h2 id="cursoTitle">Seleccione un curso</h2>
+        <div class="course-options-grid">
+            <div class="course-option-card" data-type="material">
+                <h3>📚 Materia</h3>
+                <p>Acceso al contenido teórico.</p>
+            </div>
+            <div class="course-option-card" data-type="miniensayos">
+                <h3>✏️ Miniensayos</h3>
+                <p>Práctica con preguntas específicas.</p>
+            </div>
+            <div class="course-option-card" data-type="ensayos">
+                <h3>📝 Ensayos</h3>
+                <p>Simulación completa de la PAES.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
