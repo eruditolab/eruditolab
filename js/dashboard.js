@@ -143,7 +143,7 @@ function iniciarTarjetasCurso() {
             }
 
             const carpeta = cursoCarpetas[materiaActual];
-            const url     = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/${type}/index.html`;
+            const url     = `/api/content/verificar.php?ruta=${carpeta}/${type}/index.html`;
 
             // Redirigir como página completa (sin iframe, sin pestaña nueva)
             window.location.href = url;
