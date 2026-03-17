@@ -19,9 +19,9 @@ const API = {
     },
 
     auth: {
-        login:    (email, password) => API.request('/auth/login.php',    'POST', { email, password }),
-        register: (nombre, email, password) => API.request('/auth/register.php', 'POST', { nombre, email, password }),
-        logout:   () => API.request('/auth/logout.php', 'POST')
+        login:    (email, password) => API.request('/auth/login',    'POST', { email, password }),
+        register: (nombre, email, password) => API.request('/auth/register', 'POST', { nombre, email, password }),
+        logout:   () => API.request('/auth/logout', 'POST')
     },
 
     user: {
