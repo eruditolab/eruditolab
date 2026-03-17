@@ -43,10 +43,10 @@ class Database {
 
     // ─── Configuración de conexión ───────────────────────────────
     private $host     = 'localhost';
-    private $port     = '3307';          // Tu puerto personalizado
-    private $db_name  = 'login_app';     // Tu nombre de BD actual
-    private $username = 'root';
-    private $password = '';
+    private $port     = '3306';          // Tu puerto personalizado
+    private $db_name  = 'cristo63_eruditolab';     // Tu nombre de BD actual
+    private $username = 'cristo63_administrator';
+    private $password = 'eruditolab-admin';
 
     private $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

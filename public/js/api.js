@@ -1,5 +1,5 @@
 const API = {
-    baseURL: '/eruditolab/api',
+    baseURL: '/eru-prod/eruditolab/api',
 
     async request(endpoint, method = 'GET', body = null) {
         const options = {

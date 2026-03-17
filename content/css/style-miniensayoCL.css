@@ -185,6 +185,31 @@
     display: inline-block;
     max-width: 100%;
 }
+#sidebar-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    display: block;
+}
+
+#sidebar-content th,
+#sidebar-content td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#sidebar-content thead {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#sidebar-content tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
 /* ─── MÓVILES ───────────────────────────────────────────── */
 @media (max-width: 768px) {

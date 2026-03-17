@@ -1,240 +1,317 @@
 const text1 = `
-El efecto invernadero es un proceso natural y fundamental para la vida en la Tierra. Se define como la capacidad que tiene la atmósfera para retener parte de la energía que el suelo irradia como consecuencia de haber sido calentado por la radiación solar. Sin este proceso, la temperatura media del planeta sería de aproximadamente -18°C, en lugar de los 14°C promedio actuales, lo que haría imposible la vida tal como la conocemos.
-El mecanismo de funcionamiento es el siguiente: la energía del sol atraviesa la atmósfera y calienta la superficie terrestre. Esta superficie, al calentarse, emite radiación infrarroja (calor) de vuelta al espacio. Sin embargo, ciertos gases presentes en la atmósfera, conocidos como gases de efecto invernadero (GEI), absorben parte de esa radiación infrarroja y la reemiten en todas las direcciones, incluso de vuelta hacia la superficie. Este proceso de retención de calor es lo que produce el calentamiento del planeta.
-Los principales gases de efecto invernadero se clasifican según su origen y potencial de calentamiento. Podemos distinguir entre gases naturales y gases antropogénicos. Los gases naturales son aquellos que han estado presentes en la atmósfera durante millones de años y forman parte de ciclos biogeoquímicos. El más abundante es el vapor de agua (H₂O). Le sigue el dióxido de carbono (CO₂), que se libera naturalmente a través de la respiración de los seres vivos y las erupciones volcánicas. El metano (CH₄) y el óxido nitroso (N₂O) también tienen fuentes naturales como la descomposición de materia orgánica en humedales o los procesos biológicos en suelos.
-Los gases antropogénicos son aquellos cuya concentración en la atmósfera se ha visto incrementada o que han sido creados directamente por la actividad humana. La quema de combustibles fósiles (carbón, petróleo y gas) para la industria, el transporte y la generación de energía es la principal fuente de emisiones de CO₂. Las actividades agrícolas y la gestión de residuos son fuentes importantes de CH₄ y N₂O. Además, existen los gases fluorados, como los clorofluorocarbonos (CFC) o los hidrofluorocarbonos (HFC), que son sintéticos y tienen un altísimo potencial de calentamiento global, aunque se encuentran en menores concentraciones.
-Si bien el efecto invernadero es un fenómeno natural, el problema actual radica en el aumento descontrolado de la concentración de estos gases debido a la actividad humana desde la Revolución Industrial, lo que está intensificando el efecto y provocando un calentamiento global acelerado con graves consecuencias para el clima del planeta. Entre estas consecuencias se incluyen el aumento del nivel del mar por el deshielo de los glaciares, el incremento de fenómenos meteorológicos extremos como huracanes y sequías, y la alteración de los ecosistemas y la biodiversidad.
-Los científicos advierten que, de no reducirse drásticamente las emisiones de gases de efecto invernadero, las temperaturas globales podrían aumentar entre 1.5°C y 4.5°C para fines de siglo, con efectos catastróficos para la humanidad. Por esta razón, acuerdos internacionales como el Protocolo de Kioto y el Acuerdo de París buscan comprometer a los países a limitar sus emisiones y promover el uso de energías renovables.
-<i>Adaptado de "Ilustrando el recalentamiento global terrestre" (Marcos A. Peñaloza M., Geoenseñanza, 2001) e IPCC (2022)</i>
+<p>Santiago, Chile — A pesar de los avances en legislación ambiental, Chile sigue enfrentando grandes desafíos en materia de reciclaje de plásticos. Según datos del Ministerio del Medio Ambiente, solo el 8% de los residuos plásticos generados en el país se recicla efectivamente, mientras que el resto termina en vertederos, rellenos sanitarios o, en el peor de los casos, en el océano.
+<p>La Ley de Responsabilidad Extendida del Productor (REP), promulgada en 2016 y que comenzó a implementarse plenamente en 2023, establece metas ambiciosas para el reciclaje de envases y embalajes. Sin embargo, diversas organizaciones ambientales han señalado que las metas actuales son insuficientes y que la infraestructura para el reciclaje sigue siendo deficiente, especialmente en regiones alejadas de la capital.
+<p>"Necesitamos un cambio cultural profundo", señala María González, vocera de la Fundación Chile Recicla. "No basta con tener contenedores de colores si la ciudadanía no separa correctamente sus residuos y si no existen plantas de reciclaje suficientes para procesarlos. Actualmente, muchas comunas del país ni siquiera cuentan con sistemas de recolección selectiva".
+<p>Por su parte, la industria del plástico ha defendido sus avances. Andrés Fuentes, gerente de la Asociación de Industriales del Plástico (ASIPLA), destaca que "las empresas han invertido fuertemente en ecodiseño y en la incorporación de material reciclado en sus productos. La ley REP nos exige metas progresivas y estamos trabajando para cumplirlas".
+<p>Un punto crítico es el reciclaje de plásticos de un solo uso. La Ley 21.368, conocida como Ley de Plásticos de Un Solo Uso, prohibió desde febrero de 2022 la entrega de bombillas, revolvedores y cubiertos de plástico en establecimientos de comida, y desde agosto de 2023, los envases de plumavit. Sin embargo, la implementación ha sido desigual y persisten dudas sobre la fiscalización.
+<p>La infografía adjunta presenta los siguientes datos visuales:
+
+<h3>Composición de residuos plásticos por tipo de producto</h3>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 60%; font-family: Arial, sans-serif; text-align: left;">
+  <thead style="background-color: #f2f2f2; font-weight: bold;">
+    <tr>
+      <th style="padding: 10px;">Tipo de producto</th>
+      <th style="padding: 10px;">Porcentaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Envases y embalajes</td><td>42%</td></tr>
+    <tr style="background-color: #f9f9f9;"><td>Bolsas plásticas</td><td>18%</td></tr>
+    <tr><td>Productos de un solo uso (cubiertos, bombillas, etc.)</td><td>15%</td></tr>
+    <tr style="background-color: #f9f9f9;"><td>Otros plásticos (juguetes, artículos de hogar, etc.)</td><td>25%</td></tr>
+  </tbody>
+</table>
+
+<h3>Tasas de reciclaje por región</h3>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 50%; font-family: Arial, sans-serif; text-align: left;">
+  <thead style="background-color: #f2f2f2; font-weight: bold;">
+    <tr>
+      <th style="padding: 10px;">Región</th>
+      <th style="padding: 10px;">Tasa de reciclaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Región Metropolitana</td><td>12%</td></tr>
+    <tr style="background-color: #f9f9f9;"><td>Región de Valparaíso</td><td>9%</td></tr>
+    <tr><td>Región del Biobío</td><td>10%</td></tr>
+    <tr style="background-color: #f9f9f9;"><td>Región de Antofagasta</td><td>5%</td></tr>
+    <tr><td>Región de La Araucanía</td><td>4%</td></tr>
+    <tr style="background-color: #f9f9f9;"><td><strong>Promedio nacional</strong></td><td><strong>8%</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>Composición de residuos plásticos por tipo de producto</h3>
+<div style="max-width:400px; margin:15px auto;">
+    <canvas id="chart-composicion"></canvas>
+</div>
+
+<h3>Tasas de reciclaje por región</h3>
+<div style="max-width:500px; margin:15px auto;">
+    <canvas id="chart-regiones"></canvas>
+</div>
+
+<h3>Evolución de la tasa de reciclaje en Chile</h3>
+<div style="max-width:500px; margin:15px auto;">
+    <canvas id="chart-evolucion"></canvas>
+</div>
+
+<h3>Comparación internacional (países OCDE)</h3>
+<div style="max-width:500px; margin:15px auto;">
+    <canvas id="chart-ocde"></canvas>
+</div>
+
+<h3>Metas de la Ley REP para envases y embalajes</h3>
+<div style="max-width:400px; margin:15px auto;">
+    <canvas id="chart-rep"></canvas>
+</div>
+
+<p><small>Fuente: Ministerio del Medio Ambiente de Chile (2023) y OCDE (2022).</small></p>
+<p>El artículo periodístico y la infografía se complementan para ofrecer una visión completa del problema. Mientras el texto presenta las opiniones de actores clave (ambientalistas, industriales) y describe el marco legal, la infografía proporciona datos concretos que permiten dimensionar el problema: la baja tasa de reciclaje (8%), las disparidades regionales, la lenta evolución en el tiempo y el rezago de Chile respecto a otros países de la OCDE. La infografía también contextualiza las metas de la Ley REP, mostrando que las metas para 2030 (30%) aún están lejos del promedio de la OCDE (32%).
+<i>Fuente: Adaptado de artículos de El Mercurio, La Tercera y datos del Ministerio del Medio Ambiente (2023-2024)</i>
 `;
 
 const text2 = `
-En el vasto árbol de la evolución, los chimpancés (Pan troglodytes) ocupan una rama muy cercana a la nuestra. Compartimos un ancestro común que vivió hace aproximadamente 6 o 7 millones de años, y desde entonces, nuestras líneas evolutivas se separaron. Esta cercanía genética, que ronda el 98% de ADN compartido, se traduce en sorprendentes similitudes en nuestro comportamiento y estructura social, pero también en diferencias clave que nos hacen únicos.
-Una de las áreas más fascinantes para la comparación es el uso de herramientas. Durante mucho tiempo se pensó que esta era una capacidad exclusivamente humana. Sin embargo, las observaciones de Jane Goodall en la década de 1960 revolucionaron nuestra comprensión al descubrir que los chimpancés también fabrican y utilizan herramientas. Por ejemplo, los chimpancés de las sabanas de Senegal afilan palos con los dientes para crear lanzas y cazar gálagos (pequeños primates) que se esconden en los huecos de los árboles. A diferencia de los humanos, que hemos desarrollado una tecnología compleja y acumulativa que transforma nuestro entorno, el uso de herramientas en chimpancés es más simple, de carácter esencialmente individual y se transmite culturalmente mediante la observación dentro de una comunidad.
-Otra dimensión comparativa relevante es la organización social. Al igual que los humanos, los chimpancés viven en comunidades complejas y jerarquizadas, donde las alianzas políticas, las traiciones y la búsqueda de poder son moneda corriente. Los machos, por ejemplo, forman coaliciones para ascender en la jerarquía y acceder a más oportunidades de apareamiento. En contraste con las sociedades humanas, que se estructuran mediante instituciones formales y sistemas legales, el orden social de los chimpancés se basa principalmente en la fuerza de las alianzas, el acicalamiento (que fortalece vínculos) y la exhibición de poder. Las hembras, por su parte, tienen sus propias jerarquías y a menudo transmiten su estatus social a sus crías, un rasgo que también observamos en ciertas culturas humanas.
-La comunicación es un tercer pilar para la comparación. Los chimpancés poseen un repertorio vocal, gestual y facial muy rico. Tienen llamadas de alarma específicas para diferentes depredadores (por ejemplo, un sonido distinto para un leopardo que para una serpiente), lo que sugiere una forma de comunicación referencial. Esta capacidad de usar símbolos para referirse a elementos del entorno es un precursor del lenguaje humano. Sin embargo, a diferencia del lenguaje humano, que es infinitamente creativo y nos permite hablar del pasado, el futuro y conceptos abstractos gracias a la sintaxis, la comunicación de los chimpancés está anclada en el aquí y el ahora, y su repertorio de sonidos es limitado y cerrado.
-Los estudios sobre chimpancés también han revelado aspectos sorprendentes de su comportamiento social. Se ha documentado que pueden mostrar comportamientos altruistas, como compartir alimentos o ayudar a otros miembros del grupo en situaciones de peligro. También se han observado conductas que podrían interpretarse como indicios de una moral incipiente, como el castigo a aquellos que violan las normas sociales del grupo. Sin embargo, estos comportamientos son mucho menos complejos que los sistemas morales y legales humanos.
-En cuanto a la longevidad, los chimpancés pueden vivir entre 40 y 50 años en estado salvaje, y hasta 60 años en cautiverio. Su desarrollo es más rápido que el humano: alcanzan la madurez sexual alrededor de los 10-12 años, y las hembras tienen crías aproximadamente cada 5-6 años. Esta tasa reproductiva es baja en comparación con otros primates, lo que hace a las poblaciones de chimpancés especialmente vulnerables a la caza y la destrucción de su hábitat.
-En conclusión, estudiar a los chimpancés no solo nos ayuda a entenderlos mejor como especie, sino que también nos ofrece un espejo para reflexionar sobre nuestra propia humanidad. Las similitudes nos revelan nuestra herencia evolutiva compartida, mientras que las diferencias nos ayudan a precisar qué es aquello que nos hace específicamente humanos: quizás no tanto las capacidades aisladas, sino su combinación y el desarrollo de un lenguaje simbólico complejo que nos ha permitido construir cultura, ciencia y tecnología de manera acumulativa.
-<i>Adaptado de "Los chimpancés, nuestros parientes más cercanos" (Jane Goodall Institute, National Geographic, 2020) y "El tercer chimpancé" (Jared Diamond, 1991)</i>
+<p>América Latina enfrenta una paradoja hídrica: posee alrededor del 30% de los recursos de agua dulce del planeta, pero millones de personas carecen de acceso al agua potable y el estrés hídrico afecta a varias de sus principales ciudades. Así lo revela un reciente informe de la Comisión Económica para América Latina y el Caribe (CEPAL) y la Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO).
+<p>El informe, titulado "El agua en América Latina: situación y perspectivas", señala que, si bien la región es rica en recursos hídricos, su distribución es extremadamente desigual. Mientras la cuenca del Amazonas concentra la mayor parte del agua, las zonas áridas y semiáridas del norte de México, el noreste de Brasil y la costa peruana y chilena sufren déficits crónicos.
+<p>"El problema no es solo la disponibilidad, sino la gestión", explicó en conferencia de prensa Marta Riquelme, oficial de recursos hídricos de la FAO. "Hay una enorme brecha entre la infraestructura existente y la necesaria, y además se pierde aproximadamente un 40% del agua en sistemas de distribución deficientes. En algunas ciudades, las pérdidas superan el 50%".
+<p>El cambio climático agrava la situación. Los glaciares andinos, que son una fuente crucial de agua para millones de personas en Perú, Bolivia, Chile y Argentina, han perdido más del 30% de su superficie en las últimas cuatro décadas. Esta tendencia amenaza con reducir drásticamente el caudal de los ríos en época seca, afectando tanto el consumo humano como la agricultura y la generación hidroeléctrica.
+<p>Otro factor preocupante es la contaminación. En muchos países, los ríos y acuíferos reciben descargas de aguas residuales sin tratamiento adecuado, así como contaminantes provenientes de la minería y la agricultura intensiva. El informe de la CEPAL destaca que solo el 40% de las aguas residuales en América Latina reciben algún tipo de tratamiento antes de ser vertidas a los cuerpos de agua.
+<p>Frente a este panorama, los expertos llaman a una gestión integrada de los recursos hídricos que considere tanto la oferta como la demanda, y que involucre a todos los actores: gobiernos, sector privado y sociedad civil. "Necesitamos pasar de una cultura de explotación a una cultura de cuidado", concluye Riquelme.
+
+<h3>Consumo de agua per cápita anual (m³/habitante)</h3>
+<div style="max-width:500px; margin:15px auto;">
+    <canvas id="chart-agua"></canvas>
+</div>
+<p><small>Fuente: FAO (2022)</small></p>
+<p>El artículo periodístico y el gráfico se complementan para ofrecer una visión integral de la situación hídrica en la región. Mientras el texto aborda los problemas estructurales (distribución desigual, pérdidas en sistemas, contaminación, impacto del cambio climático), el gráfico añade una dimensión comparativa fundamental: muestra que el consumo per cápita en la región es muy superior al promedio mundial (1,150 m³ vs 700 m³), con países como Chile, Argentina y Uruguay duplicando o triplicando el consumo de naciones como Guatemala o Haití.
+<p>Esta información visual permite inferir que el problema del agua en América Latina no es solo de disponibilidad o gestión, sino también de patrones de consumo. Países con mayor desarrollo relativo (Chile, Argentina) consumen mucha más agua per cápita que países de menor desarrollo, lo que plantea interrogantes sobre la sostenibilidad de esos patrones. El gráfico también revela las profundas desigualdades intraregionales: mientras Chile consume 2,200 m³ por habitante al año, Haití apenas alcanza los 250 m³.
+<p>La intención comunicativa del artículo, respaldada por el gráfico, es alertar sobre la necesidad de una gestión más eficiente y equitativa del agua, considerando tanto los problemas estructurales como los patrones de consumo. La fuente (CEPAL y FAO) otorga alta confiabilidad a los datos presentados.
+<i>Fuente: Adaptado de informes de CEPAL, FAO y artículos de prensa especializada (2022-2023)</i>
 `;
 
 const text3 = `
-El sueño es un estado fisiológico de la conciencia, activo y reversible, que se caracteriza por una disminución del nivel de alerta y una suspensión relativa de la actividad sensorial y motora. Lejos de ser un proceso pasivo, el sueño cumple funciones vitales para la salud física y mental, como la consolidación de la memoria, la regulación metabólica y la reparación celular.
-El sueño se clasifica en dos grandes tipos que alternan cíclicamente a lo largo de la noche: el sueño No REM (NREM) y el sueño REM (Rapid Eye Movement). El sueño No REM, a su vez, se subdivide en tres etapas. La etapa N1 es la transición entre la vigilia y el sueño, un período breve de sueño ligero que dura aproximadamente 1 a 5 minutos. Durante esta etapa, es fácil despertar a la persona, y esta puede tener la sensación de no haber dormido realmente.
-La etapa N2 corresponde al sueño de consolidación y ocupa aproximadamente el 50% del tiempo total de sueño en adultos. Durante esta etapa, la frecuencia cardíaca y la temperatura corporal descienden, y la actividad cerebral se caracteriza por la presencia de husos de sueño y complejos K, que son ondas cerebrales específicas. Esta etapa es crucial para la consolidación de la memoria declarativa, es decir, la memoria de hechos y conocimientos.
-La etapa N3, también conocida como sueño de ondas lentas o sueño profundo, es la fase más reparadora y difícil de interrumpir. Durante esta etapa, el cuerpo libera hormonas del crecimiento, se lleva a cabo la reparación de tejidos y se fortalece el sistema inmunológico. La privación de esta etapa se asocia con fatiga crónica, disminución de la función cognitiva y mayor vulnerabilidad a enfermedades. El sueño profundo predomina en la primera mitad de la noche y disminuye con la edad.
-El sueño REM, por su parte, es la fase donde ocurren la mayoría de los sueños vívidos. Se caracteriza por movimientos oculares rápidos, una actividad cerebral intensa similar a la vigilia y una atonía muscular temporal que impide que el cuerpo represente físicamente los sueños. Esta fase es crucial para el procesamiento emocional y la consolidación de la memoria procedimental, como aprender a tocar un instrumento o realizar movimientos complejos.
-Un ciclo completo de sueño dura aproximadamente 90 minutos, y una persona adulta suele experimentar entre cuatro y seis ciclos por noche. La estructura del sueño cambia a lo largo de la vida: los recién nacidos pasan aproximadamente el 50% de su tiempo de sueño en fase REM, mientras que en los adultos este porcentaje se reduce a alrededor del 20-25%. Las personas mayores tienden a pasar menos tiempo en sueño profundo y se despiertan con más frecuencia durante la noche.
-La falta de sueño tiene consecuencias graves para la salud. La privación crónica de sueño se ha asociado con un mayor riesgo de enfermedades cardiovasculares, obesidad, diabetes tipo 2, depresión y deterioro cognitivo. Además, afecta negativamente el rendimiento laboral y académico, y aumenta el riesgo de accidentes de tráfico y laborales. Los expertos recomiendan que los adultos duerman entre 7 y 9 horas diarias para mantener una salud óptima.
-Existen diversos trastornos del sueño que afectan a la población. El insomnio, caracterizado por la dificultad para conciliar o mantener el sueño, es el más común y afecta a aproximadamente un tercio de la población en algún momento de su vida. La apnea del sueño, que implica pausas en la respiración durante la noche, afecta a un porcentaje significativo de adultos, especialmente aquellos con sobrepeso. El síndrome de piernas inquietas y la narcolepsia son otros trastornos menos comunes pero igualmente debilitantes.
-<i>Adaptado de "El sueño y sus fases" (National Sleep Foundation, 2022) y "Why We Sleep" (Matthew Walker, 2017)</i>
+<p>Los resultados de la prueba PISA 2022, dados a conocer esta semana por la Organización para la Cooperación y el Desarrollo Económicos (OCDE), han vuelto a encender las alarmas sobre la calidad de la educación en América Latina. La región se ubica, una vez más, en los últimos lugares del ranking internacional, con puntajes significativamente por debajo del promedio de la OCDE en las tres áreas evaluadas: matemáticas, lectura y ciencias.
+<p>El informe, que evalúa a estudiantes de 15 años en 81 países, muestra que ningún país latinoamericano alcanza el promedio de la OCDE en ninguna de las áreas. Chile, tradicionalmente el mejor posicionado en la región, obtiene 412 puntos en matemáticas, muy por debajo del promedio OCDE que es de 472 puntos. En lectura, el panorama es similar: Chile lidera con 448 puntos, frente al promedio OCDE de 476. En ciencias, Chile alcanza 444 puntos, mientras el promedio OCDE es de 485.
+<p>"Estos resultados son preocupantes, pero no sorprendentes", declaró a este medio Claudia Martínez, especialista en educación de la CEPAL. "Reflejan décadas de desigualdad, inversión insuficiente y debilidades estructurales en nuestros sistemas educativos. La pandemia profundizó estas brechas, pero los problemas vienen de antes".
+<p>Los datos muestran una marcada heterogeneidad en la región. Mientras Chile, Uruguay y Costa Rica se ubican en el grupo de países con desempeño medio-bajo, naciones como Guatemala, Honduras y Nicaragua se sitúan en los últimos lugares del ranking mundial. En matemáticas, por ejemplo, Guatemala obtiene 312 puntos, 160 puntos menos que el promedio OCDE, lo que equivale a varios años de rezago educativo.
+<p>El informe también revela que la mayoría de los estudiantes latinoamericanos no alcanzan el nivel básico de competencias (nivel 2) en matemáticas, considerado el mínimo necesario para participar plenariamente en la sociedad. En Chile, el 44% de los estudiantes está por debajo del nivel 2; en Argentina, el 55%; en Perú, el 60%; y en Guatemala, el 85%. En contraste, en países como Estonia o Japón, este porcentaje es inferior al 15%.
+<p>Los especialistas coinciden en que estos resultados tienen implicaciones profundas para el desarrollo de la región. "La educación es la base del desarrollo económico y social", señaló Martínez. "Si nuestros jóvenes no adquieren las competencias básicas, estamos hipotecando el futuro. No podemos seguir compitiendo en base a recursos naturales; necesitamos una fuerza laboral calificada para insertarnos en la economía del conocimiento".
+<p>Los ministros de educación de la región, reunidos de urgencia en Santiago, emitieron una declaración conjunta comprometiéndose a reforzar las políticas educativas y aumentar la inversión en el sector. Sin embargo, organizaciones de la sociedad civil han recibido el anuncio con escepticismo, recordando que promesas similares se han hecho en el pasado sin resultados concretos.
+<h3>Resultados PISA 2022</h3>
+<div style="max-width:600px; margin:15px auto;">
+    <canvas id="chart-pisa"></canvas>
+</div>
+<p><small>Fuente: OCDE (PISA 2022)</small></p>
+<p>El artículo periodístico y la tabla comparativa se complementan para ofrecer una visión detallada de la crisis educativa en la región. El texto contextualiza los resultados, ofrece opiniones de especialistas y describe las reacciones políticas, mientras que la tabla proporciona datos precisos que permiten comparar el desempeño de los países en las tres áreas evaluadas y visualizar las enormes brechas existentes.
+<p>La tabla permite inferir la magnitud del rezago: ningún país latinoamericano alcanza siquiera los 450 puntos en ninguna área, mientras el promedio OCDE ronda los 470-485. También revela la heterogeneidad regional: Chile y Uruguay duplican en puntaje a Nicaragua y Honduras. El indicador de porcentaje de estudiantes por debajo del nivel básico es especialmente revelador: mientras en la OCDE solo el 24% no alcanza las competencias mínimas, en países como Guatemala, Honduras y Nicaragua esa cifra supera el 85%.
+<p>La intención del autor del artículo parece ser doble: por un lado, informar objetivamente sobre los resultados; por otro, generar conciencia sobre la gravedad de la crisis educativa y la necesidad de políticas urgentes. La selección de citas (especialistas que hablan de "décadas de desigualdad" y "futuro hipotecado") refuerza esta intención crítica. La fuente (OCDE) es de alta confiabilidad, lo que otorga solidez a los datos presentados.
+<i>Fuente: Adaptado de informes de la OCDE (PISA 2022) y notas de prensa de El País, El Mercurio y Clarín (2023)</i>
 `;
 
 const textMap = {
-    1: { title: "El efecto invernadero", content: text1 },
-    2: { title: "Los chimpancés, nuestros parientes más cercanos", content: text2 },
-    3: { title: "El sueño y sus fases", content: text3 }
+    1: { title: "Chile: el desafío del reciclaje de plásticos", content: text1 },
+    2: { title: "América Latina: la urgencia de gestionar el agua", content: text2 },
+    3: { title: "Resultados PISA en Latinoamérica: una radiografía de la crisis educativa", content: text3 }
 };
 
 const questionsText1 = [
     {
-        pregunta: `Según el texto, ¿cuál es la temperatura media actual de la Tierra gracias al efecto invernadero?`,
+        pregunta: `Según el artículo, ¿cuál es la tasa de reciclaje de plásticos en Chile según el Ministerio del Medio Ambiente?`,
         opciones: [
-            `-18°C`,
-            `14°C`,
-            `25°C`,
-            `0°C`
+            `5%`,
+            `8%`,
+            `12%`,
+            `15%`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Cuál sería la temperatura de la Tierra sin el efecto invernadero?`,
+        pregunta: `¿Qué ley establece metas para el reciclaje de envases y embalajes en Chile?`,
         opciones: [
-            `14°C`,
-            `-18°C`,
-            `5°C`,
-            `-5°C`
+            `Ley de Plásticos de Un Solo Uso (21.368)`,
+            `Ley de Responsabilidad Extendida del Productor (REP)`,
+            `Ley de Fomento al Reciclaje`,
+            `Ley de Basura Cero`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué tipo de radiación emite la superficie terrestre al calentarse?`,
+        pregunta: `¿En qué año se promulgó la Ley REP?`,
         opciones: [
-            `Radiación ultravioleta`,
-            `Radiación infrarroja (calor)`,
-            `Radiación visible`,
-            `Rayos X`
+            `2010`,
+            `2016`,
+            `2020`,
+            `2023`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Cuál es el gas de efecto invernadero natural más abundante según el texto?`,
+        pregunta: `Según María González de Chile Recicla, ¿cuáles son los problemas principales?`,
         opciones: [
-            `Dióxido de carbono (CO₂)`,
-            `Metano (CH₄)`,
-            `Vapor de agua (H₂O)`,
-            `Óxido nitroso (N₂O)`
+            `Falta de leyes y regulaciones`,
+            `Falta de cultura ciudadana, sistemas de recolección selectiva deficientes y falta de plantas de reciclaje`,
+            `Exceso de reciclaje`,
+            `Altos costos de los contenedores`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué productos prohibió la Ley de Plásticos de Un Solo Uso desde febrero de 2022?`,
+        opciones: [
+            `Bolsas plásticas y envases`,
+            `Bombillas, revolvedores y cubiertos de plástico`,
+            `Botellas PET`,
+            `Todo tipo de plásticos`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `Según la infografía, ¿qué porcentaje de los residuos plásticos corresponden a envases y embalajes?`,
+        opciones: [
+            `25%`,
+            `42%`,
+            `18%`,
+            `15%`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué región de Chile tiene la mayor tasa de reciclaje según la infografía?`,
+        opciones: [
+            `Valparaíso (9%)`,
+            `Metropolitana (12%)`,
+            `Biobío (10%)`,
+            `Antofagasta (5%)`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué región tiene la menor tasa de reciclaje?`,
+        opciones: [
+            `Antofagasta (5%)`,
+            `Biobío (10%)`,
+            `La Araucanía (4%)`,
+            `Metropolitana (12%)`
         ],
         correcta: 2
     },
     {
-        pregunta: `¿Qué actividad humana es la principal fuente de emisiones de CO₂?`,
+        pregunta: `¿Cómo ha evolucionado la tasa de reciclaje en Chile entre 2010 y 2023?`,
         opciones: [
-            `La agricultura`,
-            `La quema de combustibles fósiles`,
-            `La deforestación`,
-            `La ganadería`
+            `Ha disminuido de 8% a 4%`,
+            `Ha aumentado lentamente de 4% a 8%`,
+            `Se ha mantenido constante en 5%`,
+            `Ha aumentado de 8% a 15%`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué son los gases fluorados como los CFC?`,
+        pregunta: `¿Qué país de la OCDE tiene la tasa de reciclaje más alta según la comparación?`,
         opciones: [
-            `Gases naturales abundantes`,
-            `Gases sintéticos con altísimo potencial de calentamiento`,
-            `Gases inocuos para el medio ambiente`,
-            `Gases que no afectan el clima`
+            `Corea del Sur (53%)`,
+            `Alemania (56%)`,
+            `España (35%)`,
+            `Chile (8%)`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿A partir de qué período histórico se intensificó el aumento de gases de efecto invernadero?`,
+        pregunta: `¿Cuál es el promedio de reciclaje en la OCDE?`,
         opciones: [
-            `La Edad Media`,
-            `La Revolución Industrial`,
-            `El Renacimiento`,
-            `La Antigüedad`
+            `25%`,
+            `32%`,
+            `40%`,
+            `50%`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué consecuencias del calentamiento global se mencionan explícitamente en el texto?`,
+        pregunta: `¿Qué meta de reciclaje establece la Ley REP para 2030?`,
         opciones: [
-            `Aumento de la biodiversidad`,
-            `Aumento del nivel del mar, fenómenos meteorológicos extremos y alteración de ecosistemas`,
-            `Disminución de huracanes`,
-            `Enfriamiento global`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué acuerdos internacionales se mencionan para combatir el cambio climático?`,
-        opciones: [
-            `Tratado de Roma y Acuerdo de Schengen`,
-            `Protocolo de Kioto y Acuerdo de París`,
-            `Carta de la ONU y Declaración Universal`,
-            `Tratado de Maastricht y Acuerdo de Lisboa`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se puede inferir sobre la relación entre la Revolución Industrial y el calentamiento global?`,
-        opciones: [
-            `La Revolución Industrial no tuvo impacto en el clima`,
-            `A partir de la Revolución Industrial, las emisiones de GEI aumentaron significativamente, intensificando el efecto invernadero`,
-            `La Revolución Industrial enfrió el planeta`,
-            `No hay relación entre ambos fenómenos`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se infiere sobre los gases fluorados a partir de la información del texto?`,
-        opciones: [
-            `Son los gases más abundantes en la atmósfera`,
-            `Aunque están en menores concentraciones, su altísimo potencial de calentamiento los hace muy peligrosos`,
-            `Son gases naturales que siempre han existido`,
-            `No contribuyen al calentamiento global`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué diferencia fundamental existe entre los gases naturales y los antropogénicos según el texto?`,
-        opciones: [
-            `Los naturales son más peligrosos`,
-            `Los naturales han estado presentes durante millones de años, mientras que los antropogénicos son creados o incrementados por la actividad humana`,
-            `No hay diferencia, ambos son iguales`,
-            `Los antropogénicos son beneficiosos para el clima`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se puede inferir sobre la importancia del efecto invernadero natural?`,
-        opciones: [
-            `Es un proceso dañino que debería eliminarse`,
-            `Es fundamental para la vida, ya que mantiene la temperatura en niveles habitables`,
-            `Es irrelevante para el clima`,
-            `Solo afecta a las regiones polares`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `Según el texto, ¿qué pasaría si las emisiones no se reducen drásticamente?`,
-        opciones: [
-            `Las temperaturas podrían aumentar entre 1.5°C y 4.5°C para fines de siglo`,
-            `El clima se estabilizaría`,
-            `Las temperaturas disminuirían`,
-            `No habría consecuencias significativas`
-        ],
-        correcta: 0
-    },
-    {
-        pregunta: `¿Qué se infiere sobre la relación entre la concentración de GEI y la temperatura global?`,
-        opciones: [
-            `A mayor concentración de GEI, menor temperatura`,
-            `A mayor concentración de GEI, mayor temperatura (relación causal directa)`,
-            `No hay relación entre ambos`,
-            `La relación es inversamente proporcional`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué fuente natural de metano se menciona en el texto?`,
-        opciones: [
-            `Las fábricas`,
-            `Los automóviles`,
-            `La descomposición de materia orgánica en humedales`,
-            `Los aerosoles`
+            `15%`,
+            `20%`,
+            `30%`,
+            `50%`
         ],
         correcta: 2
     },
     {
-        pregunta: `¿Qué se puede inferir sobre el papel de la atmósfera en el efecto invernadero?`,
+        pregunta: `¿Qué se puede inferir sobre la evolución del reciclaje en Chile a partir de los datos de la infografía?`,
         opciones: [
-            `La atmósfera bloquea toda la radiación solar`,
-            `La atmósfera permite la entrada de energía solar y retiene parte del calor emitido por la Tierra`,
-            `La atmósfera no tiene ningún papel en el clima`,
-            `La atmósfera solo retiene contaminantes`
+            `Chile ha tenido un crecimiento explosivo en reciclaje`,
+            `El crecimiento ha sido muy lento (solo 4 puntos porcentuales en 13 años)`,
+            `El reciclaje ha disminuido`,
+            `Chile ya alcanzó las metas de la OCDE`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué actividad humana contribuye a las emisiones de metano y óxido nitroso?`,
+        pregunta: `¿Qué se infiere sobre la relación entre las metas de la Ley REP y el promedio de la OCDE?`,
         opciones: [
-            `La generación de energía nuclear`,
-            `Las actividades agrícolas y la gestión de residuos`,
-            `La producción de paneles solares`,
-            `El uso de bicicletas`
+            `Las metas de Chile para 2030 (30%) superan el promedio de la OCDE`,
+            `Las metas de Chile para 2030 (30%) están cerca del promedio OCDE (32%), pero aún por debajo`,
+            `Las metas de Chile son mucho más altas que el promedio OCDE`,
+            `Chile no tiene metas de reciclaje`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué se infiere sobre la urgencia de actuar frente al cambio climático?`,
+        pregunta: `¿Qué disparidad regional revela la infografía?`,
         opciones: [
-            `No hay urgencia, podemos esperar siglos`,
-            `Es urgente reducir emisiones para evitar consecuencias catastróficas`,
-            `El problema se resolverá solo`,
-            `La acción humana no puede cambiar el clima`
+            `Todas las regiones reciclan igual`,
+            `La Región Metropolitana recicla tres veces más que La Araucanía (12% vs 4%)`,
+            `Las regiones del norte reciclan más que las del sur`,
+            `No hay disparidades significativas`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué función cumplen los acuerdos internacionales mencionados?`,
+        pregunta: `¿Qué intención comunicativa tiene el artículo al incluir opiniones de diferentes actores (ambientalistas e industriales)?`,
         opciones: [
-            `Promover el aumento de emisiones`,
-            `Comprometer a los países a limitar emisiones y promover energías renovables`,
-            `Financiar la quema de combustibles fósiles`,
-            `Ignorar el problema climático`
+            `Mostrar que todos están de acuerdo`,
+            `Presentar diferentes perspectivas sobre el problema y generar un debate balanceado`,
+            `Criticar solo a la industria`,
+            `Criticar solo a los ambientalistas`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué se puede inferir sobre la confiabilidad de las fuentes del artículo?`,
+        opciones: [
+            `Las fuentes son poco confiables (solo opiniones)`,
+            `Las fuentes son confiables (Ministerio del Medio Ambiente, OCDE, ASIPLA, Fundación Chile Recicla)`,
+            `No hay fuentes claras`,
+            `Solo se usan fuentes anónimas`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué relación existe entre la información del artículo y la infografía?`,
+        opciones: [
+            `Se contradicen`,
+            `La infografía cuantifica y visualiza los datos que el artículo contextualiza y analiza cualitativamente`,
+            `Son independientes y no relacionados`,
+            `La infografía no aporta información relevante`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué porcentaje de plásticos de un solo uso representa el total de residuos plásticos?`,
+        opciones: [
+            `42%`,
+            `18%`,
+            `15%`,
+            `25%`
+        ],
+        correcta: 2
+    },
+    {
+        pregunta: `¿Qué se puede inferir sobre la efectividad de la Ley de Plásticos de Un Solo Uso a partir del artículo?`,
+        opciones: [
+            `Ha sido completamente efectiva y no hay problemas`,
+            `Su implementación ha sido desigual y persisten dudas sobre la fiscalización`,
+            `No ha tenido ningún impacto`,
+            `Se derogó antes de implementarse`
         ],
         correcta: 1
     }
@@ -242,405 +319,405 @@ const questionsText1 = [
 
 const questionsText2 = [
     {
-        pregunta: `Según el texto, ¿hace cuánto tiempo vivió el ancestro común entre humanos y chimpancés?`,
+        pregunta: `Según el artículo, ¿qué porcentaje de los recursos de agua dulce del planeta posee América Latina?`,
         opciones: [
-            `2-3 millones de años`,
-            `6-7 millones de años`,
-            `10-12 millones de años`,
-            `50 millones de años`
+            `10%`,
+            `20%`,
+            `30%`,
+            `50%`
+        ],
+        correcta: 2
+    },
+    {
+        pregunta: `¿Qué porcentaje de agua se pierde en sistemas de distribución deficientes según la FAO?`,
+        opciones: [
+            `20%`,
+            `30%`,
+            `40%`,
+            `50%`
+        ],
+        correcta: 2
+    },
+    {
+        pregunta: `¿Cuánto han perdido los glaciares andinos en las últimas cuatro décadas?`,
+        opciones: [
+            `10%`,
+            `20%`,
+            `30%`,
+            `40%`
+        ],
+        correcta: 2
+    },
+    {
+        pregunta: `¿Qué porcentaje de las aguas residuales en América Latina recibe tratamiento antes de ser vertido?`,
+        opciones: [
+            `20%`,
+            `40%`,
+            `60%`,
+            `80%`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué porcentaje de ADN comparten humanos y chimpancés según el texto?`,
+        pregunta: `Según la tabla, ¿qué país de América Latina tiene el mayor consumo de agua per cápita?`,
         opciones: [
-            `95%`,
-            `98%`,
-            `99%`,
-            `100%`
+            `Argentina (2,000 m³)`,
+            `Uruguay (1,950 m³)`,
+            `Chile (2,200 m³)`,
+            `Brasil (1,500 m³)`
+        ],
+        correcta: 2
+    },
+    {
+        pregunta: `¿Cuál es el consumo de agua per cápita en Haití según la tabla?`,
+        opciones: [
+            `400 m³`,
+            `250 m³`,
+            `550 m³`,
+            `750 m³`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Quién revolucionó el conocimiento sobre el uso de herramientas en chimpancés?`,
+        pregunta: `¿Cuál es el promedio regional de consumo de agua en América Latina?`,
         opciones: [
-            `Charles Darwin`,
-            `Jane Goodall`,
-            `Dian Fossey`,
-            `Louis Leakey`
+            `700 m³`,
+            `1,150 m³`,
+            `1,500 m³`,
+            `2,000 m³`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué herramienta fabrican los chimpancés de Senegal?`,
+        pregunta: `¿Cuál es el promedio mundial de consumo de agua?`,
         opciones: [
-            `Martillos de piedra`,
-            `Lanzas afilando palos con los dientes`,
-            `Redes para pescar`,
-            `Cestas de mimbre`
+            `500 m³`,
+            `700 m³`,
+            `900 m³`,
+            `1,100 m³`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Para qué utilizan esas herramientas?`,
+        pregunta: `¿Qué se puede inferir sobre la relación entre el consumo de agua y el nivel de desarrollo en la región?`,
         opciones: [
-            `Para defenderse de depredadores`,
-            `Para cazar gálagos que se esconden en huecos de árboles`,
-            `Para construir nidos`,
-            `Para abrir frutos secos`
+            `Los países con mayor desarrollo relativo (Chile, Argentina) consumen más agua per cápita`,
+            `Los países más pobres consumen más agua`,
+            `No hay relación entre desarrollo y consumo`,
+            `Todos los países consumen igual`
+        ],
+        correcta: 0
+    },
+    {
+        pregunta: `¿Qué se infiere sobre la sostenibilidad de los patrones de consumo en países como Chile?`,
+        opciones: [
+            `Son perfectamente sostenibles`,
+            `Son preocupantes porque duplican o triplican el consumo de países como Haití y superan ampliamente el promedio mundial`,
+            `Son similares a los de países desarrollados`,
+            `No hay datos para inferir`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Cómo se transmite el uso de herramientas entre los chimpancés?`,
+        pregunta: `¿Qué desigualdad intraregional revela la tabla?`,
         opciones: [
-            `Genéticamente, por herencia`,
-            `Culturalmente, mediante la observación dentro de la comunidad`,
-            `Por enseñanza explícita de los humanos`,
-            `No se transmite, cada uno lo descubre individualmente`
+            `No hay desigualdad significativa`,
+            `Chile consume casi 9 veces más agua per cápita que Haití (2,200 vs 250 m³)`,
+            `Haití consume más que Chile`,
+            `Todos los países están en el mismo rango`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué característica de la organización social de los chimpancés se menciona?`,
+        pregunta: `¿Qué factores agravan la situación hídrica según el artículo?`,
         opciones: [
-            `Viven en comunidades simples sin jerarquías`,
-            `Viven en comunidades complejas y jerarquizadas con alianzas políticas`,
-            `Son completamente igualitarios`,
-            `Las hembras dominan siempre a los machos`
+            `Solo el cambio climático`,
+            `El cambio climático, la contaminación y la falta de tratamiento de aguas residuales`,
+            `Solo la contaminación`,
+            `La sobrepoblación únicamente`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué hacen los machos para ascender en la jerarquía?`,
+        pregunta: `¿Qué afirma Marta Riquelme sobre la brecha entre infraestructura y necesidades?`,
         opciones: [
-            `Enfrentarse en peleas individuales`,
-            `Formar coaliciones con otros machos`,
-            `Ayudar a las hembras`,
-            `Construir refugios`
+            `No hay brecha, todo funciona bien`,
+            `Hay una enorme brecha, con pérdidas de aproximadamente 40% del agua`,
+            `La brecha es pequeña y manejable`,
+            `La infraestructura es excesiva`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué función cumple el acicalamiento entre chimpancés?`,
+        pregunta: `¿Qué cambio cultural propone Riquelme?`,
         opciones: [
-            `Solo sirve para limpiarse`,
-            `Fortalece los vínculos sociales`,
-            `Es una forma de castigo`,
-            `No tiene función social`
+            `Seguir con la misma cultura de explotación`,
+            `Pasar de una cultura de explotación a una cultura de cuidado`,
+            `Aumentar la explotación de recursos`,
+            `Privatizar el agua`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué característica del lenguaje humano NO está presente en la comunicación de los chimpancés?`,
+        pregunta: `¿Qué intención comunicativa tiene el artículo al incluir datos de CEPAL y FAO?`,
         opciones: [
-            `La capacidad de comunicar emociones`,
-            `La creatividad infinita y la capacidad de hablar del pasado, futuro y conceptos abstractos`,
-            `El uso de gestos`,
-            `La comunicación vocal`
+            `Restar credibilidad al informe`,
+            `Otorgar confiabilidad y respaldo institucional a los datos presentados`,
+            `Confundir al lector con datos contradictorios`,
+            `Mostrar que las organizaciones no se ponen de acuerdo`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué tipo de comunicación referencial tienen los chimpancés?`,
+        pregunta: `¿Qué relación existe entre la tabla y el artículo?`,
         opciones: [
-            `Pueden hablar de cualquier tema`,
-            `Tienen llamadas de alarma específicas para diferentes depredadores`,
-            `Escriben mensajes`,
-            `Usan un lenguaje simbólico complejo`
+            `Se contradicen`,
+            `La tabla añade una dimensión comparativa que complementa el análisis cualitativo del artículo`,
+            `Son independientes`,
+            `La tabla no aporta información relevante`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Cuánto pueden vivir los chimpancés en estado salvaje?`,
+        pregunta: `¿Qué se puede inferir sobre la gestión del agua en América Latina a partir de los datos?`,
         opciones: [
-            `20-30 años`,
-            `40-50 años`,
-            `60-70 años`,
-            `80-90 años`
+            `Es ejemplar y debería ser imitada`,
+            `Es deficiente, con grandes pérdidas, desigualdades y falta de tratamiento de aguas residuales`,
+            `Es similar a la de Europa`,
+            `No hay problemas de gestión`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿A qué edad alcanzan la madurez sexual los chimpancés?`,
+        pregunta: `¿Qué país consume menos agua per cápita en la región?`,
         opciones: [
-            `5-6 años`,
-            `10-12 años`,
-            `15-16 años`,
-            `18-20 años`
+            `Bolivia (550 m³)`,
+            `Paraguay (500 m³)`,
+            `Haití (250 m³)`,
+            `Guatemala (400 m³)`
+        ],
+        correcta: 2
+    },
+    {
+        pregunta: `¿Qué se puede inferir sobre la relación entre el derretimiento de glaciares y la disponibilidad de agua?`,
+        opciones: [
+            `El derretimiento aumenta la disponibilidad de agua a largo plazo`,
+            `El derretimiento amenaza con reducir drásticamente el caudal de los ríos en época seca`,
+            `No hay relación entre glaciares y ríos`,
+            `El derretimiento solo afecta a la agricultura`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué se puede inferir sobre la relación entre la tasa reproductiva de los chimpancés y su vulnerabilidad?`,
+        pregunta: `¿Qué porcentaje del agua se pierde en sistemas deficientes en algunas ciudades?`,
         opciones: [
-            `Su alta tasa reproductiva los hace resistentes a la caza`,
-            `Su baja tasa reproductiva (crías cada 5-6 años) los hace especialmente vulnerables a la caza y destrucción del hábitat`,
-            `Su tasa reproductiva no tiene relación con su vulnerabilidad`,
-            `Se reproducen tan rápido que no hay peligro de extinción`
+            `30%`,
+            `40%`,
+            `50%`,
+            `60%`
         ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se infiere sobre la complejidad de los sistemas morales humanos comparados con los chimpancés?`,
-        opciones: [
-            `Son igual de complejos`,
-            `Los sistemas morales humanos son mucho más complejos que los comportamientos de castigo observados en chimpancés`,
-            `Los chimpancés tienen sistemas morales más complejos`,
-            `No hay sistemas morales en ninguna de las dos especies`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se puede inferir sobre la importancia del estudio de los chimpancés para comprender a los humanos?`,
-        opciones: [
-            `No tiene importancia porque son especies diferentes`,
-            `Nos ayuda a entender nuestra herencia evolutiva compartida y a precisar qué nos hace específicamente humanos`,
-            `Solo sirve para proteger a los chimpancés`,
-            `Es irrelevante para la antropología`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué característica del desarrollo humano se puede inferir a partir de la información sobre la madurez sexual de los chimpancés?`,
-        opciones: [
-            `Los humanos maduran más rápido que los chimpancés`,
-            `Los humanos maduran más lentamente (madurez sexual alrededor de los 12-14 años, pero desarrollo completo mucho después)`,
-            `Ambas especies maduran igual`,
-            `Los chimpancés maduran más lentamente`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué diferencia fundamental entre el uso de herramientas humano y de chimpancés se puede inferir?`,
-        opciones: [
-            `Los chimpancés usan herramientas más complejas`,
-            `El uso humano es acumulativo y transforma el entorno, mientras que el de chimpancés es más simple y cultural`,
-            `Ambos usan herramientas de la misma manera`,
-            `Los humanos no usan herramientas`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué comportamiento altruista de los chimpancés se menciona?`,
-        opciones: [
-            `Construir refugios para otros`,
-            `Compartir alimentos o ayudar a otros en peligro`,
-            `Enseñar a cazar a las crías`,
-            `Cuidar a los ancianos`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se infiere sobre la relación entre el lenguaje humano y la capacidad de construir cultura?`,
-        opciones: [
-            `No hay relación entre lenguaje y cultura`,
-            `El lenguaje simbólico complejo ha permitido a los humanos construir cultura, ciencia y tecnología de manera acumulativa`,
-            `Los chimpancés tienen lenguaje simbólico y también construyen cultura compleja`,
-            `La cultura humana existe independientemente del lenguaje`
-        ],
-        correcta: 1
+        correcta: 2
     }
 ];
 
 const questionsText3 = [
     {
-        pregunta: `Según el texto, ¿qué porcentaje del tiempo total de sueño ocupa la etapa N2 en adultos?`,
+        pregunta: `Según el artículo, ¿qué puntaje obtuvo Chile en matemáticas en PISA 2022?`,
         opciones: [
-            `25%`,
-            `50%`,
-            `75%`,
+            `448 puntos`,
+            `412 puntos`,
+            `444 puntos`,
+            `400 puntos`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Cuál es el promedio de la OCDE en matemáticas?`,
+        opciones: [
+            `476 puntos`,
+            `472 puntos`,
+            `485 puntos`,
+            `450 puntos`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué país latinoamericano lidera en lectura según los resultados?`,
+        opciones: [
+            `Uruguay (430)`,
+            `Chile (448)`,
+            `Costa Rica (415)`,
+            `México (415)`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué puntaje obtuvo Guatemala en matemáticas?`,
+        opciones: [
+            `350 puntos`,
+            `312 puntos`,
+            `375 puntos`,
+            `385 puntos`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué puntaje obtuvo Nicaragua en ciencias?`,
+        opciones: [
+            `320 puntos`,
+            `305 puntos`,
+            `315 puntos`,
+            `330 puntos`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué porcentaje de estudiantes chilenos está por debajo del nivel 2 en matemáticas?`,
+        opciones: [
+            `55%`,
+            `44%`,
+            `60%`,
+            `85%`
+        ],
+        correcta: 1
+    },
+    {
+        pregunta: `¿Qué porcentaje de estudiantes guatemaltecos está por debajo del nivel 2 en matemáticas?`,
+        opciones: [
+            `60%`,
+            `72%`,
+            `85%`,
             `90%`
         ],
-        correcta: 1
+        correcta: 2
     },
     {
-        pregunta: `¿Cuánto dura aproximadamente un ciclo completo de sueño?`,
+        pregunta: `¿Cuál es el porcentaje de estudiantes por debajo del nivel 2 en matemáticas en el promedio de la OCDE?`,
         opciones: [
-            `60 minutos`,
-            `90 minutos`,
-            `120 minutos`,
-            `45 minutos`
+            `15%`,
+            `24%`,
+            `30%`,
+            `44%`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Cuántos ciclos de sueño experimenta un adulto por noche?`,
+        pregunta: `¿Qué países obtienen los puntajes más bajos en la región según la tabla?`,
         opciones: [
-            `1-2 ciclos`,
-            `4-6 ciclos`,
-            `7-8 ciclos`,
-            `10-12 ciclos`
+            `Chile, Uruguay y Costa Rica`,
+            `Guatemala, Honduras y Nicaragua`,
+            `México, Perú y Colombia`,
+            `Brasil y Argentina`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué porcentaje del sueño de los recién nacidos es sueño REM?`,
+        pregunta: `¿Qué se puede inferir sobre la heterogeneidad educativa en América Latina a partir de la tabla?`,
         opciones: [
-            `20-25%`,
-            `50%`,
-            `75%`,
-            `10%`
+            `Todos los países tienen resultados similares`,
+            `Hay enormes diferencias: Chile y Uruguay duplican en puntaje a Nicaragua y Honduras`,
+            `No hay diferencias significativas`,
+            `Los países pequeños tienen mejores resultados`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué porcentaje del sueño de los adultos es sueño REM?`,
+        pregunta: `¿Qué se infiere sobre la gravedad de la crisis educativa en Centroamérica?`,
         opciones: [
-            `10-15%`,
-            `20-25%`,
-            `30-35%`,
-            `40-45%`
+            `No hay crisis, están al nivel de la OCDE`,
+            `Es muy grave: más del 85% de los estudiantes no alcanza las competencias mínimas en matemáticas`,
+            `Están ligeramente por debajo del promedio regional`,
+            `Tienen mejores resultados que Chile`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué función cumple la etapa N2 del sueño?`,
+        pregunta: `¿Qué factor NO menciona Claudia Martínez como causa de los resultados?`,
         opciones: [
-            `La reparación de tejidos`,
-            `La consolidación de la memoria declarativa`,
-            `El procesamiento emocional`,
-            `La liberación de hormonas del crecimiento`
+            `Décadas de desigualdad`,
+            `Inversión insuficiente`,
+            `Debilidades estructurales`,
+            `Falta de interés de los estudiantes`
+        ],
+        correcta: 3
+    },
+    {
+        pregunta: `¿Qué efecto tuvo la pandemia según la especialista?`,
+        opciones: [
+            `Mejoró los resultados educativos`,
+            `Profundizó las brechas existentes`,
+            `No tuvo ningún efecto`,
+            `Igualó a todos los países`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué función cumple el sueño profundo (N3)?`,
+        pregunta: `¿Qué implica no alcanzar el nivel 2 en matemáticas según el artículo?`,
         opciones: [
-            `Consolidación de la memoria declarativa`,
-            `Reparación de tejidos, liberación de hormonas del crecimiento y fortalecimiento del sistema inmunológico`,
-            `Sueños vívidos`,
-            `Procesamiento emocional`
+            `No tener acceso a la universidad`,
+            `No alcanzar las competencias básicas necesarias para participar plenamente en la sociedad`,
+            `Ser un mal estudiante`,
+            `No poder leer ni escribir`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué función cumple el sueño REM?`,
+        pregunta: `¿Qué relación establece la especialista entre educación y desarrollo?`,
         opciones: [
-            `Sueño ligero y reparador`,
-            `Procesamiento emocional y consolidación de memoria procedimental`,
-            `Liberación de hormonas`,
-            `Reparación celular`
+            `No hay relación entre educación y desarrollo`,
+            `La educación es la base del desarrollo económico y social; sin competencias básicas, se hipoteca el futuro`,
+            `El desarrollo puede lograrse sin educación`,
+            `La educación solo sirve para el desarrollo cultural`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué caracteriza a la etapa N1 del sueño?`,
+        pregunta: `¿Cómo reaccionaron los ministros de educación de la región?`,
         opciones: [
-            `Sueño profundo y difícil de interrumpir`,
-            `Transición entre vigilia y sueño, sueño ligero de 1 a 5 minutos`,
-            `Movimientos oculares rápidos`,
-            `Atonía muscular`
+            `Ignoraron los resultados`,
+            `Emitieron una declaración conjunta comprometiéndose a reforzar políticas y aumentar inversión`,
+            `Renunciaron a sus cargos`,
+            `Criticaron la metodología de PISA`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué son los husos de sueño y complejos K?`,
+        pregunta: `¿Qué escepticismo expresan las organizaciones de la sociedad civil?`,
         opciones: [
-            `Trastornos del sueño`,
-            `Ondas cerebrales específicas de la etapa N2`,
-            `Movimientos oculares del sueño REM`,
-            `Fases del sueño profundo`
+            `Que los datos de PISA son falsos`,
+            `Que promesas similares se han hecho en el pasado sin resultados concretos`,
+            `Que los ministros no tienen capacidad`,
+            `Que la educación no es importante`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué es la atonía muscular que ocurre durante el sueño REM?`,
+        pregunta: `¿Qué intención comunicativa tiene el artículo al incluir el indicador de "porcentaje por debajo del nivel 2"?`,
         opciones: [
-            `Contracción muscular intensa`,
-            `Parálisis temporal que impide representar físicamente los sueños`,
-            `Relajación muscular normal`,
-            `Temblor incontrolable`
+            `Complicar innecesariamente la información`,
+            `Mostrar de manera contundente la magnitud del fracaso educativo en la región`,
+            `Comparar solo a los mejores estudiantes`,
+            `Ocultar los malos resultados`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué consecuencias tiene la privación de sueño profundo (N3)?`,
+        pregunta: `¿Qué se puede inferir sobre la confiabilidad de la fuente del artículo?`,
         opciones: [
-            `Mayor creatividad`,
-            `Fatiga crónica, disminución cognitiva y mayor vulnerabilidad a enfermedades`,
-            `Aumento de la memoria`,
-            `Mejor rendimiento físico`
+            `Es poco confiable porque solo usa opiniones`,
+            `Es altamente confiable porque los datos provienen de la OCDE, una organización reconocida internacionalmente`,
+            `No tiene fuentes claras`,
+            `Las fuentes son anónimas`
         ],
         correcta: 1
     },
     {
-        pregunta: `¿Qué trastorno del sueño es el más común según el texto?`,
+        pregunta: `¿Qué país latinoamericano tiene el menor porcentaje de estudiantes por debajo del nivel 2 en matemáticas?`,
         opciones: [
-            `Apnea del sueño`,
-            `Insomnio`,
-            `Narcolepsia`,
-            `Síndrome de piernas inquietas`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿A qué porcentaje de la población afecta el insomnio en algún momento de su vida?`,
-        opciones: [
-            `10%`,
-            `Un tercio (aproximadamente 33%)`,
-            `50%`,
-            `5%`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Cuántas horas de sueño recomiendan los expertos para adultos?`,
-        opciones: [
-            `5-6 horas`,
-            `7-9 horas`,
-            `10-12 horas`,
-            `3-4 horas`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se puede inferir sobre la relación entre el sueño profundo y la edad?`,
-        opciones: [
-            `El sueño profundo aumenta con la edad`,
-            `El sueño profundo disminuye con la edad`,
-            `El sueño profundo se mantiene constante toda la vida`,
-            `No hay relación entre sueño profundo y edad`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se infiere sobre la importancia del sueño REM en los recién nacidos?`,
-        opciones: [
-            `Es menos importante que en adultos`,
-            `Es muy importante, probablemente para el desarrollo cerebral (ocupa el 50% de su sueño)`,
-            `No tiene función específica`,
-            `Es perjudicial para su desarrollo`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué relación entre sueño y salud se puede inferir del texto?`,
-        opciones: [
-            `La falta de sueño solo afecta el rendimiento laboral`,
-            `La falta de sueño crónica se asocia con enfermedades cardiovasculares, obesidad, diabetes y depresión`,
-            `El sueño no tiene relación con la salud física`,
-            `Dormir más de 9 horas es siempre beneficioso`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se puede inferir sobre la apnea del sueño a partir del texto?`,
-        opciones: [
-            `Es el trastorno más común`,
-            `Afecta especialmente a personas con sobrepeso e implica pausas en la respiración`,
-            `No tiene consecuencias para la salud`,
-            `Afecta solo a niños`
-        ],
-        correcta: 1
-    },
-    {
-        pregunta: `¿Qué se infiere sobre la relación entre sueño y memoria?`,
-        opciones: [
-            `El sueño no afecta la memoria`,
-            `Diferentes etapas del sueño consolidan diferentes tipos de memoria (declarativa en N2, procedimental en REM)`,
-            `Solo el sueño profundo consolida la memoria`,
-            `La memoria se consolida solo durante la vigilia`
+            `Uruguay (46%)`,
+            `Chile (44%)`,
+            `Costa Rica (52%)`,
+            `México (55%)`
         ],
         correcta: 1
     }

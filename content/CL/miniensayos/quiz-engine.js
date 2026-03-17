@@ -206,6 +206,7 @@ function makeImagesZoomable() {
         });
     });
 }
+
 const paesScores = [100, 170, 194, 216, 236, 256, 275, 292, 307, 321, 335, 350, 365, 380, 393, 403, 412, 422, 433, 446, 460, 474, 486, 495, 502];
 
 const TIEMPO_LIMITE = 60 * 60; // 60 minutos en segundos
@@ -344,13 +345,24 @@ function adjustSidebarForMobile(sidebar) {
 }
 
 function updateSidebarContent() {
-    const isFirstBlock    = currentQuestion < 12;
-    const textId          = isFirstBlock ? firstTextId : secondTextId;
+    const isFirstBlock       = currentQuestion < 12;
+    const textId             = isFirstBlock ? firstTextId : secondTextId;
     const { title, content } = textMap[textId];
 
-    document.getElementById('sidebar-title').textContent   = title;
-    document.getElementById('sidebar-content').innerHTML   = `<p>${content.replace(/\n/g, '<br>')}</p>`;
-    setTimeout(makeImagesZoomable, 100);
+    document.getElementById('sidebar-title').textContent = title;
+
+    const tieneHTML = /<[a-z][\s\S]*>/i.test(content);
+    if (tieneHTML) {
+        document.getElementById('sidebar-content').innerHTML = content;
+    } else {
+        document.getElementById('sidebar-content').innerHTML =
+            `<p>${content.replace(/\n/g, '<br>')}</p>`;
+    }
+
+    setTimeout(() => {
+        renderCharts();
+        makeImagesZoomable();
+    }, 150);
 }
 
 function toggleSidebar() {
