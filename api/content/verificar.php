@@ -8,7 +8,7 @@ if (!isAuthenticated()) {
         http_response_code(200);
         exit;
     }
-    header('Location: /eruditolab/public/login.html');
+    header('Location: /eruditolab/login.html');
     exit;
 }
 
@@ -19,7 +19,7 @@ $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch();
 
 if (!$user || $user['estado'] !== 'activo') {
-    header('Location: /eruditolab/public/login.html');
+    header('Location: /eruditolab/login.html');
     exit;
 }
 
