@@ -28,7 +28,7 @@ clases.forEach((titulo, index) => {
         }
 
         // Redirigir al ensayo pasando por el verificador
-        window.location.href = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/${archivoDestino}`;
+        window.location.href = `/api/content/verificar.php?ruta=${carpeta}/${archivoDestino}`;
     });
 
     grid.appendChild(card);

@@ -29,7 +29,7 @@ clases.forEach((titulo, index) => {
     }
 
     const archivoDestino = `ME${numeroClase}.html`;
-    window.location.href = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/${archivoDestino}`;
+    window.location.href = `/api/content/verificar.php?ruta=${carpeta}/${archivoDestino}`;
 });
 
 /*    card.addEventListener('click', async () => {
@@ -51,7 +51,7 @@ clases.forEach((titulo, index) => {
         }
 
         // Redirigir al miniensayo
-        window.location.href = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/${archivoDestino}`;
+        window.location.href = `/api/content/verificar.php?ruta=${carpeta}/${archivoDestino}`;
     });*/
 
     grid.appendChild(card);

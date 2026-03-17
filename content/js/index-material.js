@@ -33,7 +33,7 @@ clases.forEach((titulo, index) => {
             console.error('Error al registrar progreso:', err.message);
         }
 
-        window.location.href = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/M${numero}.pdf`;
+        window.location.href = `/api/content/verificar.php?ruta=${carpeta}/M${numero}.pdf`;
     });
 
     // Botón Ejercicios
@@ -52,7 +52,7 @@ clases.forEach((titulo, index) => {
             console.error('Error al registrar progreso:', err.message);
         }
 
-        window.location.href = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/E${numero}.pdf`;
+        window.location.href = `/api/content/verificar.php?ruta=${carpeta}/E${numero}.pdf`;
     });
 
     grid.appendChild(card);

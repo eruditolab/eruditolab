@@ -157,9 +157,9 @@ function goToHome() {
 
     if (rutaActual) {
         const carpeta = rutaActual.substring(0, rutaActual.lastIndexOf('/'));
-        window.location.href = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/index.html`;
+        window.location.href = `/api/content/verificar.php?ruta=${carpeta}/index.html`;
     } else {
-        window.location.href = '/eruditolab/api/content/verificar.php?ruta=M1/miniensayos/index.html';
+        window.location.href = '/api/content/verificar.php?ruta=M1/miniensayos/index.html';
     }
 }
 
