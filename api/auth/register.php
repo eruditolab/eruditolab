@@ -42,8 +42,21 @@ if ($stmt->fetch()) {
 }
 
 $hash = password_hash($pass, PASSWORD_BCRYPT, ['cost' => 12]);
-$ins  = $db->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, 'estudiante')");
+// Insertar usuario
+$ins = $db->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, 'estudiante')");
 $ins->execute([$nombre, $email, $hash]);
+$nuevoId = $db->lastInsertId();
+
+// Accesos por defecto: solo CL y M1
+$stmtAccesos = $db->prepare("
+    INSERT INTO accesos_cursos (usuario_id, curso, activo) VALUES
+        (?, 'CL',  1),
+        (?, 'M1',  1),
+        (?, 'M2',  0),
+        (?, 'HCS', 0),
+        (?, 'CN',  0)
+");
+$stmtAccesos->execute([$nuevoId, $nuevoId, $nuevoId, $nuevoId, $nuevoId]);
 
 http_response_code(201);
 echo json_encode(['success' => true, 'message' => 'Usuario registrado correctamente']);
