@@ -19,6 +19,7 @@ const cursоNombres = {
 };
 
 let materiaActual = '';
+let accesosCache  = {};
 
 // ─── 1. CARGAR USUARIO ──────────────────────────────────────
 async function cargarUsuario() {
@@ -28,15 +29,15 @@ async function cargarUsuario() {
 
     try {
         const data = await API.user.getProfile();
-        document.getElementById('nombreUsuario').textContent  = data.nombre      || 'Estudiante';
-        document.getElementById('emailUsuario').textContent   = data.email       || '---';
-        document.getElementById('nemValue').textContent       = data.nem         || '---';
-        document.getElementById('rankingValue').textContent   = data.ranking     || '---';
-        document.getElementById('puntajeLectora').textContent = data.puntaje_cl  || '---';
-        document.getElementById('puntajeM1').textContent      = data.puntaje_m1  || '---';
-        document.getElementById('puntajeHistoria').textContent= data.puntaje_hcs || '---';
-        document.getElementById('puntajeCiencias').textContent= data.puntaje_cn  || '---';
-        document.getElementById('puntajeM2').textContent      = data.puntaje_m2  || '---';
+        document.getElementById('nombreUsuario').textContent   = data.nombre      || 'Estudiante';
+        document.getElementById('emailUsuario').textContent    = data.email       || '---';
+        document.getElementById('nemValue').textContent        = data.nem         || '---';
+        document.getElementById('rankingValue').textContent    = data.ranking     || '---';
+        document.getElementById('puntajeLectora').textContent  = data.puntaje_cl  || '---';
+        document.getElementById('puntajeM1').textContent       = data.puntaje_m1  || '---';
+        document.getElementById('puntajeHistoria').textContent = data.puntaje_hcs || '---';
+        document.getElementById('puntajeCiencias').textContent = data.puntaje_cn  || '---';
+        document.getElementById('puntajeM2').textContent       = data.puntaje_m2  || '---';
         localStorage.setItem('user', JSON.stringify(data));
     } catch (err) {
         console.error('Error al cargar perfil:', err.message);
@@ -59,8 +60,6 @@ async function guardarCampo(field, value) {
 async function iniciarCirculos() {
     try {
         const progreso = await API.progreso.obtener();
-        console.log('Progreso obtenido:', progreso);
-
         document.querySelectorAll('.progress-circle').forEach(circle => {
             const curso  = circle.getAttribute('data-curso');
             const pct    = progreso[curso] || 0;
@@ -68,7 +67,6 @@ async function iniciarCirculos() {
             circle.querySelector('.progress').style.strokeDashoffset = offset;
             circle.querySelector('.progress-text').textContent = pct + '%';
         });
-
     } catch (err) {
         console.error('Error al cargar progreso:', err.message);
         document.querySelectorAll('.progress-circle').forEach(circle => {
@@ -110,15 +108,24 @@ function iniciarNavegacion() {
     document.querySelectorAll('#submenuCursos a[data-curso]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.stopPropagation();
-            const curso = link.getAttribute('data-curso');
-            materiaActual = curso;
-            document.getElementById('cursoTitle').textContent = cursоNombres[curso] || 'Curso';
+            const curso   = link.getAttribute('data-curso');
+            const carpeta = cursoCarpetas[curso];
 
-            // Restaurar las tarjetas si se había navegado antes
+            // Verificar acceso antes de navegar
+            if (accesosCache[carpeta] === false) {
+                materiaActual = curso;
+                restaurarTarjetas();
+                mostrarSinAcceso(cursоNombres[curso]);
+                showSection('curso');
+                if (window.innerWidth <= 768) cerrarSidebar();
+                return;
+            }
+
+            materiaActual = curso;
             restaurarTarjetas();
+            document.getElementById('cursoTitle').textContent = cursоNombres[curso] || 'Curso';
             showSection('curso');
 
-            // Cerrar sidebar en móvil
             if (window.innerWidth <= 768) cerrarSidebar();
         });
     });
@@ -129,12 +136,40 @@ function showSection(id) {
     document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
     const target = document.getElementById(id);
     if (target) target.classList.add('active');
+
+    // Si vuelve a la sección curso, restaurar tarjetas
+    if (id === 'curso' && materiaActual) {
+        restaurarTarjetas();
+    }
 }
 
-// ─── 6. TARJETAS DE CURSO → REDIRIGIR A PÁGINA ──────────────
-function iniciarTarjetasCurso() {
+// ─── 6. TARJETAS DE CURSO ───────────────────────────────────
+async function iniciarTarjetasCurso() {
+    try {
+        accesosCache = await API.accesos.obtener();
+    } catch (err) {
+        console.error('Error cargando accesos:', err);
+        accesosCache = {};
+    }
+
+    // Marcar cursos sin acceso en el sidebar
+    document.querySelectorAll('#submenuCursos a[data-curso]').forEach(link => {
+        const curso   = link.getAttribute('data-curso');
+        const carpeta = cursoCarpetas[curso];
+        if (accesosCache[carpeta] === false) {
+            link.style.opacity = '0.4';
+            link.style.cursor  = 'not-allowed';
+            link.title         = 'Sin acceso a este curso';
+            if (!link.innerHTML.includes('🔒')) link.innerHTML += ' 🔒';
+        }
+    });
+
+    asignarClickTarjetas();
+}
+
+function asignarClickTarjetas() {
     document.querySelectorAll('.course-option-card').forEach(card => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', async function() {
             const type = this.dataset.type;
 
             if (!materiaActual) {
@@ -143,18 +178,44 @@ function iniciarTarjetasCurso() {
             }
 
             const carpeta = cursoCarpetas[materiaActual];
-            const url     = `/api/content/verificar.php?ruta=${carpeta}/${type}/index.html`;
 
-            // Redirigir como página completa (sin iframe, sin pestaña nueva)
-            window.location.href = url;
+            // Verificar acceso
+            if (accesosCache[carpeta] === false) {
+                mostrarSinAcceso(cursоNombres[materiaActual]);
+                return;
+            }
+
+            window.location.href =
+                `/api/content/verificar.php?ruta=${carpeta}/${type}/index.html`;
         });
     });
 }
 
-// ─── 7. RESTAURAR TARJETAS ──────────────────────────────────
+// ─── 7. MOSTRAR SIN ACCESO ──────────────────────────────────
+function mostrarSinAcceso(nombreCurso) {
+    const seccion = document.getElementById('curso');
+    seccion.innerHTML = `
+        <div id="sinAcceso" style="text-align:center; padding:60px 20px;">
+            <div style="font-size:4rem; margin-bottom:20px;">🔒</div>
+            <h2 style="color:#ff4444; margin-bottom:15px;">Sin acceso a ${nombreCurso}</h2>
+            <p style="color:#aaa; font-size:1.1rem; max-width:400px;
+                      margin:0 auto 30px; line-height:1.6;">
+                No tienes acceso a este curso. Contacta al administrador para habilitarlo.
+            </p>
+            <a href="https://wa.me/56974864715" target="_blank"
+               style="background:#34a853; color:white; padding:12px 24px;
+                      border-radius:8px; text-decoration:none; font-weight:bold;
+                      display:inline-block;">
+                📱 Contactar por WhatsApp
+            </a>
+        </div>
+    `;
+}
+
+// ─── 8. RESTAURAR TARJETAS ──────────────────────────────────
 function restaurarTarjetas() {
     const seccion = document.getElementById('curso');
-    // Solo restaurar si fue reemplazado por iframe anteriormente
+
     if (!document.getElementById('cursoOpciones')) {
         seccion.innerHTML = `
             <div id="cursoOpciones">
@@ -175,11 +236,15 @@ function restaurarTarjetas() {
                 </div>
             </div>
         `;
-        iniciarTarjetasCurso();
+        asignarClickTarjetas();
+    } else {
+        // Actualizar título si ya existe
+        const titulo = document.getElementById('cursoTitle');
+        if (titulo) titulo.textContent = cursоNombres[materiaActual] || 'Curso';
     }
 }
 
-// ─── 8. ACCORDION ───────────────────────────────────────────
+// ─── 9. ACCORDION ───────────────────────────────────────────
 function iniciarAccordion() {
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
@@ -189,7 +254,7 @@ function iniciarAccordion() {
     });
 }
 
-// ─── 9. EDITAR NEM Y RANKING ────────────────────────────────
+// ─── 10. EDITAR NEM Y RANKING ───────────────────────────────
 function iniciarEditables() {
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -198,7 +263,7 @@ function iniciarEditables() {
             const current = document.getElementById(spanId).textContent;
 
             const config = {
-                nem:     { label: 'NEM (100-1000)',    min: 100, max: 1000 },
+                nem:     { label: 'NEM (100-1000)',     min: 100, max: 1000 },
                 ranking: { label: 'Ranking (100-1000)', min: 100, max: 1000 }
             };
 
@@ -225,7 +290,7 @@ function iniciarEditables() {
     });
 }
 
-// ─── 10. LOGOUT ─────────────────────────────────────────────
+// ─── 11. LOGOUT ─────────────────────────────────────────────
 function iniciarLogout() {
     document.getElementById('logoutBtn').addEventListener('click', async () => {
         if (confirm('¿Cerrar sesión?')) {
@@ -236,7 +301,7 @@ function iniciarLogout() {
     });
 }
 
-// ─── 11. SIDEBAR MÓVIL ──────────────────────────────────────
+// ─── 12. SIDEBAR MÓVIL ──────────────────────────────────────
 function cerrarSidebar() {
     const sidebar        = document.querySelector('.sidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
@@ -270,13 +335,13 @@ function iniciarSidebarMovil() {
 // ═══════════════════════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     cargarUsuario();
     iniciarCirculos();
     iniciarNavegacion();
     iniciarAccordion();
     iniciarEditables();
     iniciarLogout();
-    iniciarTarjetasCurso();
+    await iniciarTarjetasCurso();
     iniciarSidebarMovil();
 });

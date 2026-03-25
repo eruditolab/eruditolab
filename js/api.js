@@ -47,6 +47,9 @@ const API = {
         API.request('/ensayos/guardar',   'POST', { curso, ensayo, puntaje }),
     verificar:  (curso, ensayo) =>
         API.request(`/ensayos/verificar?curso=${curso}&ensayo=${ensayo}`)
+},
+    accesos: {
+    obtener: () => API.request('/accesos/obtener')
 }
 };
 

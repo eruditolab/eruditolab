@@ -81,7 +81,13 @@ switch ($resource) {
             echo json_encode(['error' => "Endpoint ensayos/{$action} no encontrado"]);
         }
         break;
-
+    case 'accesos':
+        requireAuth();
+        $file = __DIR__ . "/accesos/{$action}.php";
+        if (file_exists($file)) 
+            require_once $file;
+        else { http_response_code(404); echo json_encode(['error' => 'No encontrado']); }
+        break;
     default:
         http_response_code(404);
         echo json_encode(['error' => 'Ruta no encontrada']);
