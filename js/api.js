@@ -33,7 +33,9 @@ const API = {
         registrar: (curso, tipo, item) =>
             API.request('/progreso/registrar', 'POST', { curso, tipo, item }),
         obtener: () =>
-            API.request('/progreso/obtener')
+            API.request('/progreso/obtener'),
+        verificarEnsayo: (curso) =>
+            API.request(`/progreso/verificar-ensayo?curso=${curso}`)
     },
 
     content: {

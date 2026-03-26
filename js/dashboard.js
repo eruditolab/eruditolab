@@ -179,10 +179,26 @@ function asignarClickTarjetas() {
 
             const carpeta = cursoCarpetas[materiaActual];
 
-            // Verificar acceso
+            // Verificar acceso al curso
             if (accesosCache[carpeta] === false) {
                 mostrarSinAcceso(cursоNombres[materiaActual]);
                 return;
+            }
+
+            // Verificar requisitos para ensayos
+            if (type === 'ensayos') {
+                try {
+                    const check = await API.progreso.verificarEnsayo(carpeta);
+                    if (!check.acceso) {
+                        mostrarRequisitosEnsayo(
+                            cursоNombres[materiaActual],
+                            check
+                        );
+                        return;
+                    }
+                } catch (err) {
+                    console.error('Error verificando acceso a ensayos:', err);
+                }
             }
 
             window.location.href =
@@ -210,6 +226,88 @@ function mostrarSinAcceso(nombreCurso) {
             </a>
         </div>
     `;
+}
+function mostrarRequisitosEnsayo(nombreCurso, check) {
+    const seccion = document.getElementById('curso');
+
+    const barraColor = (pct, req) => pct >= req ? '#34a853' : '#ff4444';
+    const icono      = (pct, req) => pct >= req ? '✅' : '❌';
+
+    seccion.innerHTML = `
+        <div style="text-align:center; padding:40px 20px; max-width:500px; margin:0 auto;">
+            <div style="font-size:3.5rem; margin-bottom:15px;">📋</div>
+            <h2 style="color:#ffaa00; margin-bottom:10px;">
+                Requisitos para ${nombreCurso}
+            </h2>
+            <p style="color:#aaa; margin-bottom:30px; line-height:1.6;">
+                Para acceder a los ensayos debes completar al menos el
+                <strong style="color:white;">${check.req_material}% del material</strong>
+                y el
+                <strong style="color:white;">${check.req_miniensayo}% de los miniensayos</strong>.
+            </p>
+
+            <!-- Barra Material -->
+            <div style="margin-bottom:25px; text-align:left;">
+                <div style="display:flex; justify-content:space-between;
+                            margin-bottom:8px; font-size:0.95rem;">
+                    <span>${icono(check.pct_material, check.req_material)}
+                          Material del curso</span>
+                    <span style="color:${barraColor(check.pct_material, check.req_material)};">
+                        ${check.pct_material}% / ${check.req_material}%
+                    </span>
+                </div>
+                <div style="background:#2a2a3f; border-radius:8px; height:12px; overflow:hidden;">
+                    <div style="
+                        width:${check.pct_material}%;
+                        height:100%;
+                        background:${barraColor(check.pct_material, check.req_material)};
+                        border-radius:8px;
+                        transition: width 0.5s ease;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barra Miniensayos -->
+            <div style="margin-bottom:35px; text-align:left;">
+                <div style="display:flex; justify-content:space-between;
+                            margin-bottom:8px; font-size:0.95rem;">
+                    <span>${icono(check.pct_miniensayo, check.req_miniensayo)}
+                          Miniensayos</span>
+                    <span style="color:${barraColor(check.pct_miniensayo, check.req_miniensayo)};">
+                        ${check.pct_miniensayo}% / ${check.req_miniensayo}%
+                    </span>
+                </div>
+                <div style="background:#2a2a3f; border-radius:8px; height:12px; overflow:hidden;">
+                    <div style="
+                        width:${check.pct_miniensayo}%;
+                        height:100%;
+                        background:${barraColor(check.pct_miniensayo, check.req_miniensayo)};
+                        border-radius:8px;
+                        transition: width 0.5s ease;">
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <button onclick="navegarA('material')"
+                    style="background:var(--primary); color:white; padding:12px 20px;
+                           border:none; border-radius:8px; cursor:pointer; font-size:0.95rem;">
+                    📚 Ir a Material
+                </button>
+                <button onclick="navegarA('miniensayos')"
+                    style="background:#6c63ff; color:white; padding:12px 20px;
+                           border:none; border-radius:8px; cursor:pointer; font-size:0.95rem;">
+                    ✏️ Ir a Miniensayos
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+function navegarA(tipo) {
+    const carpeta = cursoCarpetas[materiaActual];
+    window.location.href =
+        `/api/content/verificar.php?ruta=${carpeta}/${tipo}/index.html`;
 }
 
 // ─── 8. RESTAURAR TARJETAS ──────────────────────────────────
