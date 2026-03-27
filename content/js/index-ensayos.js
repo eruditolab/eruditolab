@@ -38,6 +38,6 @@ clases.forEach((titulo, index) => {
 document.getElementById('logoutBtn').addEventListener('click', () => {
     if (confirm('¿Cerrar sesión y volver al inicio?')) {
         localStorage.clear();
-        window.location.href = '/eruditolab/login.html';
+        window.location.href = '/login.html';
     }
 });
