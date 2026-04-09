@@ -197,13 +197,22 @@ function makeImagesZoomable() {
 
             const hint      = document.createElement('span');
             hint.className  = 'zoom-hint';
-            hint.textContent = '🔍 Clic para ampliar';
+            hint.textContent = ('ontouchstart' in window) ? '👆 Toca para ampliar' : '🔍 Clic para ampliar';
             wrapper.appendChild(hint);
         }
 
-        img.addEventListener('click', () => {
-            openZoom(img.src, img.alt);
-        });
+        const isTouchDevice = 'ontouchstart' in window;
+
+        if (isTouchDevice) {
+            let touchMoved = false;
+            img.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
+            img.addEventListener('touchmove',  () => { touchMoved = true;  }, { passive: true });
+            img.addEventListener('touchend',   () => {
+                if (!touchMoved) openZoom(img.src, img.alt);
+            });
+        } else {
+            img.addEventListener('click', () => openZoom(img.src, img.alt));
+        }
     });
 }
 
