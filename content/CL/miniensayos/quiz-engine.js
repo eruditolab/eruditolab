@@ -185,34 +185,50 @@ function updateCursor() {
 }
 function makeImagesZoomable() {
     document.querySelectorAll('#quizContent img, #sidebar-content img, #results img').forEach(img => {
-        if (img.classList.contains('zoomable')) return;
+        if (img.dataset.zoomReady === 'true') return;
+        img.dataset.zoomReady = 'true';
 
-        img.classList.add('zoomable');
-
+        // Wrapper y hint
         if (!img.parentElement.classList.contains('image-wrapper')) {
             const wrapper     = document.createElement('div');
             wrapper.className = 'image-wrapper';
             img.parentNode.insertBefore(wrapper, img);
             wrapper.appendChild(img);
 
-            const hint      = document.createElement('span');
-            hint.className  = 'zoom-hint';
-            hint.textContent = ('ontouchstart' in window) ? '👆 Toca para ampliar' : '🔍 Clic para ampliar';
+            const hint       = document.createElement('span');
+            hint.className   = 'zoom-hint';
+            hint.textContent = '🔍 Toca o haz clic para ampliar';
             wrapper.appendChild(hint);
         }
 
-        const isTouchDevice = 'ontouchstart' in window;
+        // Listeners directamente, sin condición de carga
+        let touchMoved = false;
+        img.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
+        img.addEventListener('touchmove',  () => { touchMoved = true;  }, { passive: true });
+        img.addEventListener('touchend', (e) => {
+            if (!touchMoved) {
+                e.preventDefault();
+                openZoom(img.src, img.alt);
+            }
+        });
+        img.addEventListener('click', () => openZoom(img.src, img.alt));
+    });
+}
 
-        if (isTouchDevice) {
-            let touchMoved = false;
-            img.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
-            img.addEventListener('touchmove',  () => { touchMoved = true;  }, { passive: true });
-            img.addEventListener('touchend',   () => {
-                if (!touchMoved) openZoom(img.src, img.alt);
-            });
-        } else {
-            img.addEventListener('click', () => openZoom(img.src, img.alt));
-        }
+function makeImagesZoomableWhenReady() {
+    makeImagesZoomable();
+    setTimeout(makeImagesZoomable, 300);
+    setTimeout(makeImagesZoomable, 800);
+}
+
+function preloadTextImages() {
+    Object.values(textMap).forEach(({ content }) => {
+        const temp = document.createElement('div');
+        temp.innerHTML = content;
+        temp.querySelectorAll('img').forEach(img => {
+            const preImg = new Image();
+            preImg.src = img.src;
+        });
     });
 }
 
@@ -257,6 +273,8 @@ function initQuiz() {
 
     firstTextId  = selectedTexts[0].id;
     secondTextId = selectedTexts[1].id;
+    preloadTextImages();
+
 
     selectedQuestionsText1 = selectRandomQuestions(selectedTexts[0].questions, 12);
     selectedQuestionsText2 = selectRandomQuestions(selectedTexts[1].questions, 12);
@@ -272,6 +290,7 @@ function initQuiz() {
     startTimer();
     renderQuestion();
     createSidebarAndArrow();
+makeImagesZoomableWhenReady();
 }
 
 // ─── TIMER CUENTA REGRESIVA ─────────────────────────────────
@@ -369,8 +388,8 @@ function updateSidebarContent() {
     }
 
     setTimeout(() => {
-        renderCharts();
-        makeImagesZoomable();
+        if (typeof renderCharts === 'function') renderCharts();
+        makeImagesZoomableWhenReady();
     }, 150);
 }
 
@@ -424,7 +443,8 @@ function renderQuestion() {
     `;
 
     updateNavigationButtons();
-    setTimeout(makeImagesZoomable, 100);
+    makeImagesZoomableWhenReady();
+
 
     const sidebar = document.getElementById('reading-sidebar');
     if (sidebar && sidebar.classList.contains('open')) {
@@ -508,7 +528,7 @@ function showResults() {
             <button onclick="goToHome()" style="background-color:#34a853;">Volver al Inicio</button>
         </div>
     `;
-    setTimeout(makeImagesZoomable, 200);
+    makeImagesZoomableWhenReady();
 
     document.getElementById('prevBtn').style.display = 'none';
     document.getElementById('nextBtn').style.display = 'none';
@@ -530,9 +550,9 @@ function goToHome() {
 
     if (rutaActual) {
         const carpeta = rutaActual.substring(0, rutaActual.lastIndexOf('/'));
-        window.location.href = `/api/content/verificar.php?ruta=${carpeta}/index.html`;
+        window.location.href = `/eruditolab/api/content/verificar.php?ruta=${carpeta}/index.html`;
     } else {
-        window.location.href = '/api/content/verificar.php?ruta=CL/miniensayos/index.html';
+        window.location.href = '/eruditolab/api/content/verificar.php?ruta=CL/miniensayos/index.html';
     }
 }
 
