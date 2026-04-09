@@ -371,3 +371,111 @@ body { font-family: var(--font-main); background: var(--bg-primary); color: var(
     background-color: #ffffff;
     outline: none;
 }
+/* ========== NAVBAR MÓVIL ========== */
+@media (max-width: 768px) {
+
+    /* Ocultar links, mostrar hamburguesa */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75vw;
+        max-width: 300px;
+        height: 100vh;
+        background: #111111;
+        padding: 80px 30px 40px;
+        gap: 8px;
+        z-index: 999;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -8px 0 30px rgba(0,0,0,0.6);
+        border-left: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        padding: 14px 16px;
+        border-radius: 10px;
+        width: 100%;
+        color: #e0e0e0;
+        transition: background 0.2s;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.07);
+    }
+
+    .nav-links a::after {
+        display: none; /* quitar la línea animada en móvil */
+    }
+
+    .btn-login {
+        margin-top: 8px;
+        text-align: center;
+        padding: 14px 16px;
+        border-radius: 10px;
+        background: var(--gradient-accent);
+    }
+
+    /* Mostrar el botón hamburguesa */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+
+    .bar {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--text-primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animación X al abrir */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Overlay oscuro detrás del menú */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.65);
+        backdrop-filter: blur(3px);
+        z-index: 998;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+}
+
+/* En desktop, ocultar el botón hamburguesa */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
