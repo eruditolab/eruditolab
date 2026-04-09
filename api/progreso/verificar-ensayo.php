@@ -22,11 +22,11 @@ $requisitos = [
 
 // ─── Totales por curso ──────────────────────────────────────
 $totales = [
-    'M1'  => [ 'material' => 80, 'miniensayo' => 20 ],
-    'CL'  => [ 'material' => 80, 'miniensayo' => 20 ],
-    'M2'  => [ 'material' => 80, 'miniensayo' => 20 ],
-    'HCS' => [ 'material' => 80, 'miniensayo' => 20 ],
-    'CN'  => [ 'material' => 80, 'miniensayo' => 20 ]
+    'M1'  => [ 'material' => 40, 'miniensayo' => 20 ],
+    'CL'  => [ 'material' => 40, 'miniensayo' => 20 ],
+    'M2'  => [ 'material' => 40, 'miniensayo' => 20 ],
+    'HCS' => [ 'material' => 40, 'miniensayo' => 20 ],
+    'CN'  => [ 'material' => 40, 'miniensayo' => 20 ]
 ];
 
 if (!isset($totales[$curso])) {

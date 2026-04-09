@@ -10,27 +10,27 @@ requireAuth();
 // Ajusta estos números según cuántos items tiene cada curso
 $totales = [
     'M1' => [
-        'material'   => 80,  // 20 materias + 20 ejercicios
+        'material'   => 40,  // 20 materias + 20 ejercicios
         'miniensayo' => 20,  // cantidad de miniensayos
         'ensayo'     => 10    // cantidad de ensayos
     ],
     'CL' => [
-        'material'   => 80,
+        'material'   => 40,
         'miniensayo' => 20,
         'ensayo'     => 10
     ],
     'M2' => [
-        'material'   => 80,
+        'material'   => 40,
         'miniensayo' => 20,
         'ensayo'     => 10
     ],
     'HCS' => [
-        'material'   => 80,
+        'material'   => 40,
         'miniensayo' => 20,
         'ensayo'     => 10
     ],
     'CN' => [
-        'material'   => 80,
+        'material'   => 40,
         'miniensayo' => 20,
         'ensayo'     => 10
     ]

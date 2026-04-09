@@ -4,125 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EruditoLab - Tu fórmula para el éxito</title>
+    <meta name="description" content="Plataforma educativa para preparar la PAES. Contenido de calidad, aprendizaje personalizado y seguimiento de progreso.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#" class="logo"><img src="https://i.postimg.cc/sfPSz5rX/Logo-300-x-300-sin-fondo-1.png" alt="Logo Preuniversitario PAES M1" class="logo"></a> 
-        <div class="name">Erudito Lab
-        </div>
-        <div class="nav-links">
-            <a href="#features">Características</a>
-            <a href="register.html">Registrarme</a>
-            <a href="login.html" class="btn-login"><div class="text-login">Iniciar Sesión</div></a>
-        </div>
+<header class="navbar">
+    <a href="index.html" class="logo-link">
+        <img src="https://i.postimg.cc/sfPSz5rX/Logo-300-x-300-sin-fondo-1.png" alt="Logo Erudito Lab" class="logo-img">
+        <span class="logo-text">Erudito Lab</span>
+    </a>
+    
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links">
+        <a href="#features">Características</a>
+        <a href="register.html">Registrarme</a>
+        <a href="login.html" class="btn-login">Iniciar Sesión</a>
     </nav>
+</header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Aprende sin límites</h1>
-                <p>Accede a nuestro contenido educativo de calidad, para preparar la PAES.</p>
-                <div class="cta-buttons">
-                    <a href="test0.html" class="btn btn-primary">Ensayo gratis M1</a>
-                    <a href="register.html" class="btn btn-secondary">Registrame</a>
-                    <a href="login.html" class="btn btn-secondary">Iniciar Sesión</a>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text fade-up">
+                    <h1>Aprende sin límites</h1>
+                    <p>Accede a nuestro contenido educativo de calidad, diseñado por expertos para preparar la PAES con confianza y resultados medibles.</p>
+                    <div class="cta-buttons">
+                        <a href="test0.html" class="btn btn-primary">Ensayo gratis M1</a>
+                        <a href="register.html" class="btn btn-secondary">Regístrate ahora</a>
+                        <a href="login.html" class="btn btn-secondary">Iniciar sesión</a>
+                    </div>
+                </div>
+                <div class="hero-visual fade-up">
+                    <div class="floating-card">
+                        <h3>✨ Prepara la PAES</h3>
+                        <p>Matemáticas M1 y Competencia Lectora. Método validado por cientos de estudiantes.</p>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="floating-card">
-                    <h3>✨ Prepara la PAES </h3>
-                    <p>Disponible nuestro método de estudios para las materias de Matemáticas M1, Competencia Lectora, Matemáticas M2, Ciencias e Historia y Ciencias Sociales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features" class="features">
-        <div class="features-container">
-            <h2 class="section-title">¿Por qué elegirnos?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Contenido de Calidad</h3>
-                    <p>Material educativo creado por expertos y actualizado constantemente.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Aprendizaje Personalizado</h3>
-                    <p>Rutas de aprendizaje adaptadas a tu nivel y objetivos.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Clases en vivo</h3>
-                    <p>Conecta con profesores en tiempo real.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Seguimiento de Progreso</h3>
-                    <p>Monitorea tu avance con estadísticas detalladas.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Métodos validados</h3>
-                    <p>Para optimizar el aprendizaje de cada estudiante.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Acceso 24/7</h3>
-                    <p>Aprende cuando y donde quieras, desde cualquier dispositivo.</p>
+        <section id="features" class="features">
+            <div class="features-container">
+                <h2 class="section-title">¿Por qué elegirnos?</h2>
+                <div class="features-grid">
+                    <article class="feature-card fade-up">
+                        <div class="feature-icon">📚</div>
+                        <h3>Contenido de Calidad</h3>
+                        <p>Material educativo creado por expertos y actualizado constantemente.</p>
+                    </article>
+                    <article class="feature-card fade-up">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Aprendizaje Personalizado</h3>
+                        <p>Rutas de aprendizaje adaptadas a tu nivel y objetivos.</p>
+                    </article>
+                    <article class="feature-card fade-up">
+                        <div class="feature-icon">💬</div>
+                        <h3>Soporte Experto</h3>
+                        <p>Resuelve tus dudas vía WhatsApp, Instagram o correo con nuestro equipo pedagógico. Respuestas en menos de 24h.</p>
+                    </article>
+                    <article class="feature-card fade-up">
+                        <div class="feature-icon">📊</div>
+                        <h3>Seguimiento de Progreso</h3>
+                        <p>Monitorea tu avance con estadísticas detalladas y reportes.</p>
+                    </article>
+                    <article class="feature-card fade-up">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Métodos Validados</h3>
+                        <p>Estrategias probadas para optimizar el aprendizaje de cada estudiante.</p>
+                    </article>
+                    <article class="feature-card fade-up">
+                        <div class="feature-icon">📱</div>
+                        <h3>Acceso 24/7</h3>
+                        <p>Aprende cuando y donde quieras, desde cualquier dispositivo.</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h2>+ de 100</h2>
-                <p>Estudiantes han aprendido con nosotros</p>
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-item fade-up">
+                    <h2>+100</h2>
+                    <p>Estudiantes activos</p>
+                </div>
+                <div class="stat-item fade-up">
+                    <h2>+40</h2>
+                    <p>Recursos interactivos</p>
+                </div>
+                <div class="stat-item fade-up">
+                    <h2>98%</h2>
+                    <p>Tasa de satisfacción</p>
+                </div>
+                <div class="stat-item fade-up">
+                    <h2>24/7</h2>
+                    <p>Soporte disponible</p>
+                </div>
             </div>
-            <div class="stat-item">
-                <h2>+ de 40</h2>
-                <p>Recusrsos interactivos disponibles</p>
-            </div>
-            <div class="stat-item">
-                <h2>98%</h2>
-                <p>Tasa de Satisfacción</p>
-            </div>
-            <div class="stat-item">
-                <h2>24/7</h2>
-                <p>Soporte Disponible</p>
-            </div>
-        </div>
-    </section>
-    <footer>
+        </section>
+    </main>
+
+    <footer class="footer">
         <div class="footer-container">
-            <div class="footer-content">
-                <p>© 2026 Erudito Lab. Todos los derechos reservados.</p>
-                <div class="social-links">
-                    <a href="https://web.facebook.com/profile.php?id=61575838893388"><img src="https://i.postimg.cc/ZKK6CR9C/logo-de-facebook.png" class="fb_icon">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/eruditolab/"><img src="https://i.postimg.cc/L47mZQ5Y/instagram.png" class="ig_icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.instagram.com/eruditolab/"><img src="https://i.postimg.cc/MZPPLBRT/tik-tok.png" class="tiktok_icon">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://wa.me/56974864715"><img src="https://i.postimg.cc/8CYmT2dR/whatsapp.png" class="wp_icon">
-                        <i class="fab fa-wp"></i>
-                    </a>
-                </div>
+            <p>&copy; 2026 Erudito Lab. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://web.facebook.com/profile.php?id=61575838893388" aria-label="Facebook"><img src="https://i.postimg.cc/ZKK6CR9C/logo-de-facebook.png" alt="FB" class="social-icon"></a>
+                <a href="https://www.instagram.com/eruditolab/" aria-label="Instagram"><img src="https://i.postimg.cc/L47mZQ5Y/instagram.png" alt="IG" class="social-icon"></a>
+                <a href="https://www.instagram.com/eruditolab/" aria-label="TikTok"><img src="https://i.postimg.cc/MZPPLBRT/tik-tok.png" alt="TK" class="social-icon"></a>
+                <a href="https://wa.me/56974864715" target="_blank" aria-label="WhatsApp"><img src="https://i.postimg.cc/8CYmT2dR/whatsapp.png" alt="WA" class="social-icon"></a>
             </div>
         </div>
     </footer>
-    <a href="https://wa.me/56974864715?text=Hola,%20necesito%20información%20sobre%20el%20preuniversitario" 
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-    <img src="https://i.postimg.cc/8CYmT2dR/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-    <span class="whatsapp-text">¿Necesitas ayuda?</span>
+
+    <a href="https://wa.me/56974864715" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <img src="https://i.postimg.cc/8CYmT2dR/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+        <span class="whatsapp-text">¿Necesitas ayuda?</span>
     </a>
     <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>/* Activador de animaciones al scroll */
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target); // Solo animar una vez
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+});</script>
 </body>
 
 </html>
