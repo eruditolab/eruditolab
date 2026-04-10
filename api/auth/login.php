@@ -59,9 +59,9 @@ $stmt->execute([$token, $expiry, $user['id']]);
 setcookie('auth_token', $token, [
     'expires'  => time() + 3600,
     'path'     => '/',
-    'secure'   => false,   // ← true en producción con HTTPS
+    'secure'   => true,    // ← true en producción con HTTPS
     'httponly' => true,
-    'samesite' => 'Strict'
+    'samesite' => 'Lax'    // ← Lax en vez de Strict para mejor compatibilidad
 ]);
 
 echo json_encode([

@@ -1,5 +1,12 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
+    session_set_cookie_params([
+        'lifetime' => 3600,
+        'path'     => '/',
+        'secure'   => true,   // ← true porque tienes HTTPS en producción
+        'httponly' => true,
+        'samesite' => 'Lax'
+    ]);
     session_start();
 }
 

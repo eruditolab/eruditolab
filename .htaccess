@@ -1,10 +1,10 @@
 RewriteEngine On
 RewriteBase /
 
-# Proteger carpeta content — redirigir al verificador
-RewriteRule ^content/(.+\.html)$ api/content/verificar.php?ruta=$1 [QSA,L]
+# ─── Proteger acceso directo a content (todo tipo de archivo) ───
+RewriteRule ^content/(.+)$ api/content/verificar.php?ruta=$1 [QSA,L]
 
-# Redirigir SOLO rutas api/ que NO sean archivos reales
+# ─── Redirigir rutas api/ que no sean archivos reales ───────────
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^api/(.*)$ api/Router.php [QSA,L]
