@@ -3,19 +3,6 @@ $base = dirname(__DIR__, 2);
 require_once $base . '/config/session.php';
 require_once $base . '/config/db.php';
 
-// ─── DEBUG TEMPORAL — eliminar después ──────────────────────
-if (isset($_GET['debug']) && $_GET['debug'] === 'test123') {
-    echo json_encode([
-        'session_id'      => session_id(),
-        'user_id_sesion'  => $_SESSION['user_id'] ?? 'NO HAY SESION',
-        'cookie_token'    => isset($_COOKIE['auth_token']) ? 'EXISTE' : 'NO EXISTE',
-        'cookie_valor'    => isset($_COOKIE['auth_token']) ? substr($_COOKIE['auth_token'], 0, 20).'...' : 'vacio',
-        'todas_cookies'   => array_keys($_COOKIE)
-    ]);
-    exit;
-}
-// ─── FIN DEBUG ───────────────────────────────────────────────
-
 // ─── Verificar autenticación por sesión o cookie ────────────
 function obtenerUsuarioId($base) {
     // Método 1: Sesión PHP activa — verificar que token sigue vigente en BD
