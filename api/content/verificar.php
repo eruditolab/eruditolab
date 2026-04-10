@@ -1,8 +1,55 @@
 <?php
 $base = dirname(__DIR__, 2);
 require_once $base . '/config/session.php';
+require_once $base . '/config/db.php';
 
-if (!isAuthenticated()) {
+// ─── Verificar autenticación por sesión o cookie ────────────
+function obtenerUsuarioId($base) {
+    // Método 1: Sesión PHP activa — verificar que token sigue vigente en BD
+    if (isAuthenticated()) {
+        $db   = Database::getInstance()->getConnection();
+        $stmt = $db->prepare("
+            SELECT id FROM usuarios
+            WHERE id = ?
+            AND token_expiry > NOW()
+            AND estado = 'activo'
+        ");
+        $stmt->execute([$_SESSION['user_id']]);
+        $user = $stmt->fetch();
+        if ($user) return $user['id'];
+
+        // Token expiró o fue reemplazado — cerrar sesión
+        session_destroy();
+        return null;
+    }
+
+    // Método 2: Cookie con token
+    if (!empty($_COOKIE['auth_token'])) {
+        $token = $_COOKIE['auth_token'];
+        $db    = Database::getInstance()->getConnection();
+        $stmt  = $db->prepare("
+            SELECT id FROM usuarios
+            WHERE token = ?
+            AND estado = 'activo'
+            AND token_expiry > NOW()
+        ");
+        $stmt->execute([$token]);
+        $user = $stmt->fetch();
+        if ($user) {
+            $_SESSION['user_id'] = $user['id'];
+            return $user['id'];
+        }
+
+        // Cookie inválida — eliminarla
+        setcookie('auth_token', '', ['expires' => time() - 3600, 'path' => '/']);
+    }
+
+    return null;
+}
+
+$userId = obtenerUsuarioId($base);
+
+if (!$userId) {
     $ext = strtolower(pathinfo($_GET['ruta'] ?? '', PATHINFO_EXTENSION));
     if (in_array($ext, ['css', 'js'])) {
         http_response_code(200);
@@ -12,10 +59,10 @@ if (!isAuthenticated()) {
     exit;
 }
 
-require_once $base . '/config/db.php';
+// ─── Verificar estado del usuario ───────────────────────────
 $db   = Database::getInstance()->getConnection();
 $stmt = $db->prepare("SELECT estado FROM usuarios WHERE id = ?");
-$stmt->execute([$_SESSION['user_id']]);
+$stmt->execute([$userId]);
 $user = $stmt->fetch();
 
 if (!$user || $user['estado'] !== 'activo') {
@@ -23,32 +70,28 @@ if (!$user || $user['estado'] !== 'activo') {
     exit;
 }
 
-// ─── Obtener y limpiar la ruta ───────────────────────────
+// ─── Limpiar y validar ruta ──────────────────────────────────
 $ruta = $_GET['ruta'] ?? '';
 $ruta = str_replace(['../', '..\\', '..'], '', $ruta);
 $ruta = ltrim($ruta, '/\\');
 
 $extension = strtolower(pathinfo($ruta, PATHINFO_EXTENSION));
 
-// ─── PDFs van a carpeta documentos/ (fuera de content/) ─
 if ($extension === 'pdf') {
     $carpetaBase = $base . '/documentos';
-    $archivo     = $carpetaBase . '/' . $ruta;
-    $realBase    = realpath($carpetaBase);
 } else {
     $carpetaBase = $base . '/content';
-    $archivo     = $carpetaBase . '/' . $ruta;
-    $realBase    = realpath($carpetaBase);
 }
 
-// Verificar que la carpeta base existe
+$archivo  = $carpetaBase . '/' . $ruta;
+$realBase = realpath($carpetaBase);
+
 if (!$realBase) {
     http_response_code(500);
     echo 'Error: carpeta base no encontrada';
     exit;
 }
 
-// Verificar que el archivo existe
 if (!file_exists($archivo)) {
     http_response_code(404);
     echo 'Archivo no encontrado: ' . htmlspecialchars($ruta);
@@ -57,14 +100,13 @@ if (!file_exists($archivo)) {
 
 $realArchivo = realpath($archivo);
 
-// Verificar que el archivo está dentro de la carpeta permitida
 if (!$realArchivo || strpos($realArchivo, $realBase) !== 0) {
     http_response_code(403);
     echo 'Acceso denegado';
     exit;
 }
 
-// ─── Servir archivo ──────────────────────────────────────
+// ─── Servir archivo ─────────────────────────────────────────
 $mimeTypes = [
     'html' => 'text/html; charset=utf-8',
     'css'  => 'text/css',
@@ -88,4 +130,3 @@ if ($extension === 'pdf') {
 }
 
 readfile($realArchivo);
-?>

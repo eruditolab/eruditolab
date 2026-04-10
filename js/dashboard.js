@@ -40,6 +40,12 @@ async function cargarUsuario() {
         document.getElementById('puntajeM2').textContent       = data.puntaje_m2  || '---';
         localStorage.setItem('user', JSON.stringify(data));
     } catch (err) {
+        // Si el error es 401, la sesión fue invalidada por otro login
+        if (err.message.includes('No autorizado') || err.message.includes('Sesión expirada')) {
+            alert('Tu sesión fue cerrada porque se inició sesión desde otro dispositivo.');
+            localStorage.clear();
+            window.location.href = 'login.html';
+        }
         console.error('Error al cargar perfil:', err.message);
     }
 }

@@ -1,10 +1,5 @@
-# Bloquear acceso directo a todo en esta carpeta
-RewriteEngine On
-RewriteBase /content/
+Options -Indexes
 
-# Redirigir todo al verificador PHP
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ /api/content/verificar.php?ruta=$1 [QSA,L]
-
-# Bloquear acceso directo a archivos HTML
-RewriteRule \.html$ /api/content/verificar.php [F,L]
+# Bloquear acceso directo a todos los archivos
+Order Allow,Deny
+Deny from all

@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 function isAuthenticated() {
     return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
@@ -17,7 +19,6 @@ function generateToken($user_id) {
     return base64_encode(json_encode([
         'user_id' => $user_id,
         'exp'     => time() + 3600,
-        'token'   => bin2hex(random_bytes(16))
+        'rand'    => bin2hex(random_bytes(16))
     ]));
 }
-?>

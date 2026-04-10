@@ -21,8 +21,6 @@ if (!$email || !$pass) {
 }
 
 $db   = Database::getInstance()->getConnection();
-
-// ── estado incluido en el SELECT ─────────────────────────
 $stmt = $db->prepare("SELECT id, nombre, email, password, rol, estado 
                       FROM usuarios WHERE email = ?");
 $stmt->execute([$email]);
@@ -34,7 +32,6 @@ if (!$user || !password_verify($pass, $user['password'])) {
     exit;
 }
 
-// ── Verificar estado de la cuenta ────────────────────────
 if ($user['estado'] === 'pendiente') {
     http_response_code(403);
     echo json_encode(['error' => 'Tu cuenta está pendiente de activación. Una vez confirmado tu pago, recibirás acceso.']);
@@ -47,10 +44,25 @@ if ($user['estado'] === 'bloqueado') {
     exit;
 }
 
-// ── Login exitoso ─────────────────────────────────────────
+// ── Login exitoso ────────────────────────────────────────────
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['rol']     = $user['rol'];
-$token = generateToken($user['id']);
+
+$token  = generateToken($user['id']);
+$expiry = date('Y-m-d H:i:s', time() + 3600);
+
+// Guardar token en BD
+$stmt = $db->prepare("UPDATE usuarios SET token = ?, token_expiry = ? WHERE id = ?");
+$stmt->execute([$token, $expiry, $user['id']]);
+
+// Guardar token en cookie segura
+setcookie('auth_token', $token, [
+    'expires'  => time() + 3600,
+    'path'     => '/',
+    'secure'   => false,   // ← true en producción con HTTPS
+    'httponly' => true,
+    'samesite' => 'Strict'
+]);
 
 echo json_encode([
     'success' => true,
@@ -62,4 +74,3 @@ echo json_encode([
         'rol'    => $user['rol']
     ]
 ]);
-?>

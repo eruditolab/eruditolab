@@ -6,8 +6,18 @@ require_once $base . '/config/session.php';
 
 requireAuth();
 
-$db     = Database::getInstance()->getConnection();
-$method = $_SERVER['REQUEST_METHOD'];
+$db   = Database::getInstance()->getConnection();
+$stmt = $db->prepare("
+    SELECT id FROM usuarios
+    WHERE id = ?
+    AND token_expiry > NOW()
+");
+$stmt->execute([$_SESSION['user_id']]);
+if (!$stmt->fetch()) {
+    http_response_code(401);
+    echo json_encode(['error' => 'Sesión expirada. Inicia sesión nuevamente.']);
+    exit;
+}
 
 // ─── GET: Obtener perfil ────────────────────────────────────
 if ($method === 'GET') {
