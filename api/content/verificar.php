@@ -55,7 +55,7 @@ if (!$userId) {
         http_response_code(200);
         exit;
     }
-    header('Location: /eruditolab/login.html');
+    header('Location: /login.html');
     exit;
 }
 
@@ -66,7 +66,7 @@ $stmt->execute([$userId]);
 $user = $stmt->fetch();
 
 if (!$user || $user['estado'] !== 'activo') {
-    header('Location: /eruditolab/login.html');
+    header('Location: /login.html');
     exit;
 }
 
